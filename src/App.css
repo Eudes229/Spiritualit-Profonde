@@ -81,24 +81,26 @@ p {
   padding: 0.5rem;
 }
 
-/* Styles pour le menu mobile (caché par défaut) */
+/* Les liens du menu - positionnés pour s'ouvrir en coulissant */
 .navbar-links {
   position: absolute;
-  top: 70px;
+  top: 70px; /* Commence juste en dessous de la navbar */
   left: 0;
   width: 100%;
   background-color: #3a3f4a; /* Un peu plus clair pour se distinguer */
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-height: 0; /* Caché par défaut */
+  
+  /* C'est la partie la plus importante : cachée par défaut */
+  max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-in-out;
 }
 
-/* Style quand le menu est ouvert */
+/* Quand le menu est ouvert (classe .active ajoutée par JS) */
 .navbar-links.active {
-  max-height: 500px; /* Assez grand pour contenir tous les liens */
+  max-height: 500px; /* On le rend visible en lui donnant une hauteur */
   padding-bottom: 1rem;
 }
 
@@ -116,7 +118,7 @@ p {
   font-weight: bold;
 }
 
-/* Le bouton hamburger, visible uniquement sur mobile */
+/* Le bouton hamburger, visible par défaut sur mobile */
 .navbar-toggle {
   display: block;
   background: none;
@@ -126,7 +128,7 @@ p {
   cursor: pointer;
 }
 
-/* --- Styles pour les écrans plus grands (à partir de 768px) --- */
+/* --- Styles pour les écrans plus grands (tablettes, ordinateurs) --- */
 @media (min-width: 768px) {
   .navbar {
     padding: 0 2rem;
@@ -137,7 +139,7 @@ p {
     display: none;
   }
 
-  /* On réinitialise les styles du menu pour l'affichage horizontal */
+  /* On remet les liens en mode horizontal sur grand écran */
   .navbar-links {
     position: static;
     flex-direction: row;

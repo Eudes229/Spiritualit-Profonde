@@ -7,11 +7,12 @@ function Navbar() {
   // État pour gérer l'ouverture/fermeture du menu mobile
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Fonction pour ouvrir/fermer le menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   
-  // Pour fermer le menu quand on clique sur un lien (très pratique sur mobile)
+  // Fonction pour fermer le menu quand on clique sur un lien
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
@@ -22,12 +23,12 @@ function Navbar() {
         <NavLink to="/" onClick={closeMenu}>SPIRITIA</NavLink>
       </div>
 
-      {/* Bouton Hamburger - s'affiche uniquement sur mobile grâce au CSS */}
+      {/* Le bouton "hamburger" qui apparaît sur mobile */}
       <button className="navbar-toggle" onClick={toggleMenu} aria-label="Ouvrir le menu">
-        {isMenuOpen ? '✕' : '☰'} {/* Affiche une croix si le menu est ouvert, sinon le hamburger */}
+        {isMenuOpen ? '✕' : '☰'} {/* Affiche une croix ou le hamburger */}
       </button>
 
-      {/* Les liens sont dans une div qui change de classe si le menu est ouvert */}
+      {/* Les liens du menu. La classe "active" est ajoutée/retirée quand on clique */}
       <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
         <NavLink to="/" className="nav-link" onClick={closeMenu} end>Accueil</NavLink>
         <NavLink to="/consultations" className="nav-link" onClick={closeMenu}>Consultations</NavLink>
