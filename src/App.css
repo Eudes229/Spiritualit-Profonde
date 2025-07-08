@@ -416,3 +416,157 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 }
+/* =================================
+   HEADER MOBILE & MENU OFF-CANVAS
+   ================================= */
+
+/* On s'assure que la barre de navigation principale reste bien en place */
+.navbar {
+  position: relative;
+  z-index: 1001; /* Doit être au-dessus du contenu mais en dessous du menu */
+}
+
+/* Style du bouton "Hamburger" */
+.navbar-toggle {
+  display: flex; /* Caché sur grand écran, devient visible grâce aux media queries */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2001; /* Au-dessus de tout */
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color); /* Utilise la couleur de votre design system */
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+
+/* Le fond noir semi-transparent */
+.offcanvas-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1999; /* Juste en dessous du menu */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Le menu lui-même (la partie qui glisse) */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85%; /* Prend 85% de la largeur de l'écran */
+  max-width: 340px; /* Mais pas plus de 340px sur les grands écrans */
+  height: 100%;
+  background-color: #fff; /* Fond blanc comme sur l'image */
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
+  transform: translateX(-100%); /* Le menu est caché à gauche par défaut */
+  transition: transform 0.3s ease-in-out;
+  z-index: 2000; /* Au-dessus du fond noir */
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+/* Classe 'active' ajoutée par React pour faire apparaître le menu et le fond */
+.offcanvas-menu.active {
+  transform: translateX(0); /* Le menu glisse à sa position visible */
+}
+.offcanvas-menu.active + .offcanvas-backdrop {
+  opacity: 1; /* Le fond devient visible */
+}
+
+/* En-tête du menu (avec le bouton fermer) */
+.offcanvas-header {
+  display: flex;
+  justify-content: flex-end; /* Aligne le bouton à droite */
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.offcanvas-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Contenu du menu (liens + réseaux sociaux) */
+.offcanvas-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.offcanvas-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvas-nav .nav-link {
+  color: var(--primary-color);
+  font-size: 1.5rem; /* Police plus grande pour le mobile */
+  font-weight: 500;
+  text-decoration: none;
+  padding: 1rem 0;
+  transition: color 0.2s ease;
+}
+
+.offcanvas-nav .nav-link:hover,
+.offcanvas-nav .nav-link.active {
+  color: var(--accent-color); /* Utilise votre couleur d'accentuation */
+}
+
+/* Les icônes de réseaux sociaux en bas */
+.offcanvas-socials {
+  margin-top: auto; /* Pousse les icônes tout en bas */
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column; /* Les icônes sont alignées verticalement */
+  align-items: flex-start; /* Alignées à gauche */
+  gap: 1.5rem; /* Espace entre chaque icône */
+}
+
+.offcanvas-socials a {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.offcanvas-socials a:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* ========================================================= */
+/* --- AJUSTEMENT POUR LES ÉCRANS DESKTOP (IMPORTANT) ------ */
+/* ========================================================= */
+
+/* Par défaut, le bouton hamburger est caché sur les grands écrans */
+.navbar-toggle {
+  display: none;
+}
+
+/* On le fait apparaître uniquement sur les écrans de type mobile/tablette */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+  
+  /* On cache les liens de la navbar desktop sur mobile */
+  .navbar-links {
+    display: none; 
+  }
+}

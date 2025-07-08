@@ -1,70 +1,81 @@
-// src/components/Navbar.jsx (Version finale avec menu slide-in)
+// src/components/Navbar.jsx (Version finale pour correspondre à votre design)
 
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-// Optionnel : si vous voulez utiliser des icônes de réseaux sociaux
-// import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+// On importe les icônes que nous venons d'installer
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Fonction pour basculer l'état du menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-  
-  // Fonction pour fermer le menu quand on clique sur un lien ou sur le fond
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
-  // Effet pour bloquer le scroll de la page quand le menu est ouvert
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
   }, [isMenuOpen]);
 
+  // J'ai renommé certains liens pour qu'ils correspondent à votre image
+  const navLinks = [
+    { to: "/", text: "Accueil", end: true },
+    { to: "/galerie", text: "Galerie" },
+    { to: "/evenements", text: "Événements" },
+    { to: "/equipe", text: "Équipe" },
+    { to: "/contact", text: "Contact" }
+  ];
 
   return (
     <>
-      <nav className="navbar">
+      <header className="navbar">
         <div className="navbar-logo">
           <NavLink to="/">SPIRITIA</NavLink>
         </div>
 
-        {/* Bouton Hamburger - Toujours visible pour ouvrir le menu */}
+        {/* C'est le bouton "hamburger" qui ouvre le menu */}
         <button className="navbar-toggle" onClick={toggleMenu} aria-label="Ouvrir le menu">
-          ☰
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
         </button>
-      </nav>
+      </header>
       
-      {/* Le conteneur du menu qui apparaît sur le côté */}
+      {/* Le conteneur du menu qui apparaît sur le côté (off-canvas) */}
       <div className={`offcanvas-menu ${isMenuOpen ? 'active' : ''}`}>
         <div className="offcanvas-header">
-          {/* Logo optionnel dans le menu */}
-          <div className="offcanvas-logo">SPIRITIA</div>
+          {/* Le bouton pour fermer le menu est maintenant à l'intérieur */}
           <button className="offcanvas-close" onClick={closeMenu} aria-label="Fermer le menu">
             ✕
           </button>
         </div>
         
         <div className="offcanvas-content">
-          <NavLink to="/" className="nav-link" onClick={closeMenu} end>Accueil</NavLink>
-          <NavLink to="/consultations" className="nav-link" onClick={closeMenu}>Consultations</NavLink>
-          <NavLink to="/a-propos" className="nav-link" onClick={closeMenu}>À Propos</NavLink>
-          <NavLink to="/contact" className="nav-link" onClick={closeMenu}>Contact</NavLink>
-
-          {/* Séparateur et icônes des réseaux sociaux, comme sur votre image */}
-          <hr className="offcanvas-divider" />
+          <nav className="offcanvas-nav">
+            {navLinks.map(link => (
+              <NavLink 
+                key={link.to} 
+                to={link.to} 
+                className="nav-link" 
+                onClick={closeMenu} 
+                end={link.end}
+              >
+                {link.text}
+              </NavLink>
+            ))}
+          </nav>
 
           <div className="offcanvas-socials">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a> {/* Remplacez par vos icônes */}
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">IN</a>
-            <a href="https://wa.me/22384876466" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WA</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <FaFacebookF />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <FaInstagram />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <FaLinkedinIn />
+            </a>
+            <a href="https://wa.me/22384876466" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <FaWhatsapp />
+            </a>
           </div>
         </div>
       </div>
