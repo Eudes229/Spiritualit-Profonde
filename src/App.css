@@ -1,0 +1,918 @@
+/* --- 1. Style Global et Variables de Design --- */
+:root {
+  --primary-color: #282c34; /* Un noir doux pour le texte et les fonds sombres */
+  --secondary-color: #4a4e5a; /* Un gris pour le texte secondaire */
+  --accent-color: #5d9cec;   /* Un bleu apaisant pour les accents, liens et boutons */
+  --accent-hover-color: #4a8ad8; /* Le bleu pour le survol */
+  --text-color: #333;
+  --bg-color: #f8f9fa;      /* Un fond très légèrement gris */
+  --card-bg: #ffffff;      /* Le blanc pour les cartes et les sections */
+  --border-color: #e9ecef;   /* Une couleur de bordure discrète */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  text-align: center;
+}
+
+/* Conteneur principal pour le contenu des pages */
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+}
+
+h2 {
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--secondary-color);
+}
+
+/* --- 2. Barre de Navigation (Navbar) - MISE À JOUR --- */
+.navbar {
+  background-color: var(--primary-color);
+  padding: 0.5rem 2rem; /* Ajustement du padding */
+  display: flex;
+  justify-content: space-between; /* <-- C'est la clé : pousse les éléments aux extrémités */
+  align-items: center; /* <-- Aligne verticalement le logo et les liens */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  height: 70px; /* Hauteur fixe pour la barre de navigation */
+}
+/* --- NOUVEAU : Section Hero sur la Page d'Accueil --- */
+.hero-section {
+  height: 60vh; /* La section prend 60% de la hauteur de l'écran */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* IMPORTANT: Assurez-vous que le chemin vers votre image est correct */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('mon-site-react/public/images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2); /* Léger fond pour la lisibilité du texte */
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  border-bottom: none; /* On retire la bordure du h1 dans le hero */
+}
+
+.hero-content p {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+}
+
+/* Style pour le logo */
+.navbar-logo img {
+  height: 50px; /* Ajustez la taille de votre logo */
+  width: auto;
+}
+
+/* Conteneur pour les liens de droite */
+.navbar-links {
+  display: flex;
+  gap: 2rem; /* Espace entre les liens */
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  transition: color 0.3s;
+  border-radius: 4px;
+}
+
+.navbar-links a:hover {
+  color: var(--accent-color);
+}
+/* Fin des modifications de la Navbar */
+
+
+/* ======================================================== */
+/* --- NOUVEAU : Section Hero sur la Page d'Accueil --- */
+/* ======================================================== */
+.hero-section {
+  height: 60vh; /* La section prend 60% de la hauteur de l'écran */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* IMPORTANT: Changez le chemin vers VOTRE image */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Effet de parallaxe simple */
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2); /* Léger fond pour la lisibilité */
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  border-bottom: none; /* On retire la bordure du h1 dans le hero */
+}
+
+.hero-content p {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+}
+/* Fin de la section Hero */
+
+
+/* --- 3. Page d'Accueil : Cartes de Consultation --- */
+.consultations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.consultation-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.consultation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.consultation-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.consultation-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.consultation-content h3 {
+  margin-top: 0;
+}
+
+.consultation-content p {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.consultation-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+.consultation-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin: 0;
+}
+
+
+/* --- 4. Page d'Accueil : Galeries --- */
+.home-section {
+  margin-bottom: 4rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.gallery-item-content {
+  padding: 1rem;
+}
+
+
+/* --- 5. Page À Propos (Blog) --- */
+.subtitle {
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+}
+
+.blog-post {
+  text-align: left;
+  background: var(--card-bg);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid var(--accent-color);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.meta-data {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+
+/* --- 6. Page Contact (Formulaire) --- */
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: left;
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px rgba(93, 156, 236, 0.5);
+}
+
+
+/* --- 7. Éléments Partagés (ex: Boutons) --- */
+.cta-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: var(--accent-hover-color);
+  transform: scale(1.05);
+}
+
+.consultation-footer .cta-button {
+  padding: 10px 20px;
+}
+/* --- 8. Page Astrologie : Grille et Cartes des Signes --- */
+.zodiac-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Une colonne sur mobile par défaut */
+  gap: 2rem;
+}
+
+/* Grille à 2 colonnes sur les écrans plus larges pour une meilleure lecture */
+@media (min-width: 992px) {
+  .zodiac-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.zodiac-sign-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.zodiac-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.zodiac-content {
+  padding: 1.5rem;
+}
+
+.zodiac-content h3 {
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zodiac-symbol {
+  font-size: 2rem;
+  color: var(--accent-color);
+}
+
+.zodiac-dates {
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-top: -10px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.zodiac-details p {
+  margin: 0.5rem 0;
+}
+
+.zodiac-description {
+  margin-top: 1rem;
+}
+
+.zodiac-traits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.zodiac-traits ul {
+  list-style-type: '– '; /* Un style de puce plus discret */
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.zodiac-traits li {
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+}
+
+/* --- 9. Style pour le contenu Placeholder --- */
+.placeholder-content {
+  text-align: left;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.placeholder-content p:last-child {
+  margin-top: 2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-align: center;
+}
+/* --- Styles pour la Géomancie --- */
+.geomancy-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--text-color);
+}
+
+.geomancy-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.geomancy-container .subtitle {
+  text-align: center;
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.geomancy-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.7;
+}
+
+.geomancy-intro p {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Sections --- */
+.history-section,
+.method-section,
+.figures-section,
+.interpretation-section {
+  margin-bottom: 3rem;
+}
+
+.history-section h2,
+.method-section h2,
+.figures-section h2,
+.interpretation-section h2 {
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Méthode en étapes --- */
+.method-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.step {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.step h3 {
+  color: var(--accent-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.step p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- Grille des figures --- */
+.figures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.figure-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.figure-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.figure-card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.figure-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- Interprétation --- */
+.interpretation-tips {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.interpretation-tips h3 {
+  color: var(--accent-color);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.interpretation-tips ol,
+.interpretation-tips ul {
+  padding-left: 1.5rem;
+  line-height: 1.7;
+}
+
+.interpretation-tips li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- CTA --- */
+.geomancy-cta {
+  text-align: center;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin-top: 3rem;
+}
+
+.geomancy-cta h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.geomancy-cta p {
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+  background-color: var(--accent-hover-color);
+  transform: scale(1.05);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .method-steps,
+  .figures-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .geomancy-container {
+    padding: 1.5rem;
+  }
+}
+/* --- 10. Section CTA (Appel à l'Action) sur la page d'accueil --- */
+.cta-section {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  margin: 4rem 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta-section h2 {
+  color: white;
+  border-bottom-color: var(--accent-color);
+}
+
+.cta-section p {
+  color: #f0f0f0;
+  max-width: 600px;
+  margin: 1rem auto 2rem auto;
+}
+
+
+/* --- 11. Page de Réservation (Booking) --- */
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr; /* Une colonne sur mobile */
+  gap: 2rem;
+  text-align: left;
+  margin-top: 2.5rem;
+}
+
+/* Grille à 2 colonnes sur écrans larges */
+@media (min-width: 768px) {
+  .booking-form {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.booking-summary {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  height: fit-content; /* S'adapte à la hauteur du contenu */
+}
+
+.booking-summary h3 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.booking-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.form-fields {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.form-fields h3 {
+  margin-top: 0;
+}
+
+.form-fields .cta-button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 15px;
+}
+/* --- 12. Bouton Flottant WhatsApp --- */
+.whatsapp-button {
+  position: fixed; /* Le secret pour le faire flotter */
+  bottom: 25px;    /* Distance du bas */
+  right: 25px;     /* Distance de la droite */
+  
+  background-color: #25D366; /* Vert WhatsApp */
+  color: white;
+  
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Pour le rendre parfaitement rond */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  
+  z-index: 1000; /* Assure qu'il est au-dessus de tout le reste */
+  
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1); /* Grossit légèrement au survol */
+  background-color: #128C7E; /* Vert plus foncé */
+}
+
+.whatsapp-icon {
+  font-size: 32px; /* Taille de l'icône à l'intérieur du bouton */
+}
+/* =================================
+   STYLES POUR LA BOUTIQUE
+   ================================= */
+
+/* Grille qui contient tous les produits */
+.products-grid {
+  display: grid;
+  /* Crée des colonnes flexibles qui s'adaptent à la taille de l'écran */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; /* Espace entre les cartes */
+  margin-top: 2rem;
+}
+
+/* Style de chaque carte produit */
+.product-card {
+  background-color: #f9f4f4; /* Couleur de fond sombre, à adapter */
+  border: 1px solid #faf7f7;
+  border-radius: 8px;
+  overflow: hidden; /* Pour que l'image ne dépasse pas les coins arrondis */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(246, 242, 242, 0.952);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Léger effet de surélévation au survol */
+  box-shadow: 0 8px 25px rgb(240, 237, 237);
+}
+
+/* Style de l'image du produit */
+.product-image {
+  width: 100%;
+  height: 220px; /* Hauteur fixe pour toutes les images */
+  object-fit: cover; /* Assure que l'image remplit l'espace sans se déformer */
+}
+
+/* Conteneur pour les informations textuelles */
+.product-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Permet à cette partie de grandir pour occuper l'espace */
+}
+
+.product-info h3 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  flex-grow: 1; /* Pousse le prix et le bouton vers le bas */
+}
+
+.product-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #a37fde; /* Une couleur pour accentuer le prix, à changer si besoin */
+  margin-bottom: 1rem;
+}
+
+/* Le bouton "Acheter" réutilise le style du bouton d'appel à l'action */
+.product-card .cta-button {
+  width: 100%;
+  text-align: center;
+  margin-top: auto; /* Pousse le bouton en bas de la carte */
+}
+/* =================================
+   STYLES POUR LA PAGE À PROPOS
+   ================================= */
+
+.about-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* --- Section d'introduction --- */
+.about-intro {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.intro-text {
+  flex: 2; /* Le texte prend 2/3 de l'espace */
+}
+
+.founder-photo-container {
+  flex: 1; /* La photo prend 1/3 de l'espace */
+  text-align: center;
+}
+
+.founder-photo {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 50%; /* Pour une photo ronde, très esthétique */
+  border: 5px solid #a37fde; /* Bordure de la couleur d'accentuation */
+  box-shadow: 0 5px 20px rgba(163, 127, 222, 0.3);
+}
+
+/* --- Section mission --- */
+.mission-section {
+  text-align: center;
+  background-color: #c4a9a9;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 4rem;
+}
+
+/* --- Grille du Blog --- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.blog-post {
+  background-color: #e8dcdc;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  border-left: 4px solid #a37fde;
+  transition: transform 0.2s ease-in-out;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+}
+
+.blog-post h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.meta-data {
+  font-size: 0.85rem;
+  color: #aaa;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* --- Section Appel à l'action final --- */
+/* (Réutilise le style de cta-section déjà existant, mais on ajoute pour les boutons) */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap; /* Pour que les boutons passent à la ligne sur mobile */
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  border: 2px solid #a37fde;
+  color: #a37fde;
+}
+
+.cta-button.secondary:hover {
+  background-color: #a37fde;
+  color: #fff;
+}
+
+
+/* --- Adaptation pour les écrans plus petits (Mobiles) --- */
+@media (max-width: 768px) {
+  .about-intro {
+    flex-direction: column-reverse; /* Met le texte au-dessus de la photo */
+    gap: 2rem;
+  }
+
+  .founder-photo {
+    max-width: 200px; /* Réduit la taille de la photo */
+  }
+
+  .about-page {
+    padding: 1rem;
+  }
+}
