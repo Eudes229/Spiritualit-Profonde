@@ -60,16 +60,15 @@ p {
 
 /* --- 2. Composants Réutilisables --- */
 
-/* Barre de Navigation */
+/* --- Barre de Navigation (VERSION AVEC MENU HAMBURGER) --- */
 .navbar {
   background-color: var(--primary-color);
-  padding: 0 2rem;
+  padding: 0 1rem; /* Padding de base pour mobile */
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  position: sticky; /* Pour qu'elle reste en haut */
+  position: sticky;
   top: 0;
   z-index: 1000;
 }
@@ -79,29 +78,83 @@ p {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
+  padding: 0.5rem;
 }
 
+/* Styles pour le menu mobile (caché par défaut) */
 .navbar-links {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: #3a3f4a; /* Un peu plus clair pour se distinguer */
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  max-height: 0; /* Caché par défaut */
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+/* Style quand le menu est ouvert */
+.navbar-links.active {
+  max-height: 500px; /* Assez grand pour contenir tous les liens */
+  padding-bottom: 1rem;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
-  padding: 5px 10px;
-  transition: color 0.3s;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: var(--accent-color);
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
 }
 
 .nav-link.active {
   color: var(--accent-color);
   font-weight: bold;
+}
+
+/* Le bouton hamburger, visible uniquement sur mobile */
+.navbar-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* --- Styles pour les écrans plus grands (à partir de 768px) --- */
+@media (min-width: 768px) {
+  .navbar {
+    padding: 0 2rem;
+  }
+  
+  /* On cache le bouton hamburger sur grand écran */
+  .navbar-toggle {
+    display: none;
+  }
+
+  /* On réinitialise les styles du menu pour l'affichage horizontal */
+  .navbar-links {
+    position: static;
+    flex-direction: row;
+    width: auto;
+    background-color: transparent;
+    max-height: none;
+    overflow: visible;
+    padding-bottom: 0;
+    transition: none;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    padding: 5px 10px;
+    font-size: 1.1rem;
+    width: auto;
+  }
 }
 
 /* Boutons d'Appel à l'Action (CTA) */
