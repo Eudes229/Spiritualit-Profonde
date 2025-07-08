@@ -53,7 +53,7 @@ function About() {
         </div>
         <div className="founder-photo-container">
           {/* TODO: Remplacez par le chemin de votre vraie photo dans le dossier public */}
-          <img src="public/images/spirituel.jpg" alt="A. Esprit, guide spirituel" className="founder-photo" />
+          <img src="/images/spirituel.jpg" alt="A. Esprit, guide spirituel" className="founder-photo" />
         </div>
       </section>
 
