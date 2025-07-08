@@ -17,7 +17,7 @@ const productsData = [
   { id: 'p3', title: 'Savon de Chance et d\'Abondance', price: '60 €', image: '/images/savon.png' },
   { id: 'p4', title: 'Pendentif des 7 Chakras', price: '110 €', image: '/images/pendentif.png' },
   { id: 'p5', title: 'Encens de Purification Tibétain', price: '80 €', image: '/images/encens.png' },
-  { id: 'p6', title: 'Huile d\'Onction Sacrée', price: '250 €', image: '/public/images/huile.png' },
+  { id: 'p6', title: 'Huile d\'Onction Sacrée', price: '250 €', image: '/images/huile.png' },
   { id: 'p7', title: 'Cristal de Quartz Rose Amour', price: '300 €', image: '/images/cristal.png' },
   { id: 'p8', title: 'Miroir Noir de Divination', price: '550 €', image: '/images/miroir.png' },
   { id: 'p9', title: 'Kit de Rituel de Prospérité', price: '500 €', image: '/images/kit.png' },
