@@ -13,17 +13,17 @@ import ProductCard from '../components/ProductCard'; // <-- NOUVEAU : Importer l
 // N'oubliez pas de mettre les images correspondantes dans votre dossier `public/images/products/`
 const productsData = [
   { id: 'p1', title: 'Talisman de Protection Suprême', price: '150 €', image: 'public/images/talisman.png' },
-  { id: 'p2', title: 'Bague de Pouvoir Lunaire', price: '100 €', image: 'public/images/BaguedePouvoir.png' },
+  { id: 'p2', title: 'Bague de Pouvoir Lunaire', price: '100 €', image: 'public/images/baguedepouvoir.png' },
   { id: 'p3', title: 'Savon de Chance et d\'Abondance', price: '60 €', image: 'public/images/savon.png' },
-  { id: 'p4', title: 'Pendentif des 7 Chakras', price: '110 €', image: 'public/images/Pendentif.png' },
-  { id: 'p5', title: 'Encens de Purification Tibétain', price: '80 €', image: 'public/images/Encens.png' },
-  { id: 'p6', title: 'Huile d\'Onction Sacrée', price: '250 €', image: 'public/images/Huile.png' },
+  { id: 'p4', title: 'Pendentif des 7 Chakras', price: '110 €', image: 'public/images/pendentif.png' },
+  { id: 'p5', title: 'Encens de Purification Tibétain', price: '80 €', image: 'public/images/encens.png' },
+  { id: 'p6', title: 'Huile d\'Onction Sacrée', price: '250 €', image: 'public/images/huile.png' },
   { id: 'p7', title: 'Cristal de Quartz Rose Amour', price: '300 €', image: 'public/images/cristal.png' },
-  { id: 'p8', title: 'Miroir Noir de Divination', price: '550 €', image: 'public/images/Miroir.png' },
-  { id: 'p9', title: 'Kit de Rituel de Prospérité', price: '500 €', image: 'public/images/Kit.png' },
+  { id: 'p8', title: 'Miroir Noir de Divination', price: '550 €', image: 'public/images/miroir.png' },
+  { id: 'p9', title: 'Kit de Rituel de Prospérité', price: '500 €', image: 'public/images/kit.png' },
   { id: 'p10', title: 'Bougie d\'Intention "Paix Intérieure"', price: '120 €', image: 'public/images/bougie.png' },
   { id: 'p11', title: 'Eau de Floride Énergétique', price: '150 €', image: 'public/images/eau.png' },
-  { id: 'p12', title: 'Amulette Contre le Mauvais Œil', price: '140 €', image: 'public/images/Amulette.png' },
+  { id: 'p12', title: 'Amulette Contre le Mauvais Œil', price: '140 €', image: 'public/images/amulette.png' },
 ];
 
 
