@@ -60,17 +60,17 @@ p {
 
 /* --- 2. Composants Réutilisables --- */
 
-/* --- Barre de Navigation (VERSION AVEC MENU HAMBURGER) --- */
+/* --- Barre de Navigation (VERSION AVEC MENU SLIDE-IN) --- */
 .navbar {
   background-color: var(--primary-color);
-  padding: 0 1rem; /* Padding de base pour mobile */
+  padding: 0 1rem;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1010; /* Doit être au-dessus du contenu mais en dessous du menu */
 }
 
 .navbar-logo a {
@@ -78,47 +78,9 @@ p {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
-  padding: 0.5rem;
 }
 
-/* Les liens du menu - positionnés pour s'ouvrir en coulissant */
-.navbar-links {
-  position: absolute;
-  top: 70px; /* Commence juste en dessous de la navbar */
-  left: 0;
-  width: 100%;
-  background-color: #3a3f4a; /* Un peu plus clair pour se distinguer */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  /* C'est la partie la plus importante : cachée par défaut */
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
-}
-
-/* Quand le menu est ouvert (classe .active ajoutée par JS) */
-.navbar-links.active {
-  max-height: 500px; /* On le rend visible en lui donnant une hauteur */
-  padding-bottom: 1rem;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  padding: 1rem 0;
-  width: 100%;
-  text-align: center;
-}
-
-.nav-link.active {
-  color: var(--accent-color);
-  font-weight: bold;
-}
-
-/* Le bouton hamburger, visible par défaut sur mobile */
+/* Bouton Hamburger - toujours visible */
 .navbar-toggle {
   display: block;
   background: none;
@@ -126,39 +88,106 @@ p {
   color: white;
   font-size: 1.8rem;
   cursor: pointer;
+  z-index: 1011;
 }
 
-/* --- Styles pour les écrans plus grands (tablettes, ordinateurs) --- */
-@media (min-width: 768px) {
-  .navbar {
-    padding: 0 2rem;
-  }
-  
-  /* On cache le bouton hamburger sur grand écran */
-  .navbar-toggle {
-    display: none;
-  }
-
-  /* On remet les liens en mode horizontal sur grand écran */
-  .navbar-links {
-    position: static;
-    flex-direction: row;
-    width: auto;
-    background-color: transparent;
-    max-height: none;
-    overflow: visible;
-    padding-bottom: 0;
-    transition: none;
-    gap: 1.5rem;
-  }
-
-  .nav-link {
-    padding: 5px 10px;
-    font-size: 1.1rem;
-    width: auto;
-  }
+/* On cache les liens de la navbar sur les grands écrans car ils sont maintenant dans le menu off-canvas */
+/* Note: Pour les écrans larges, nous garderons le menu hamburger pour ce design */
+.navbar-links {
+  display: none; 
 }
 
+
+/* --- Menu Latéral (Off-Canvas) --- */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%; /* Le menu prend 80% de la largeur de l'écran */
+  max-width: 320px; /* Mais pas plus de 320px de large */
+  height: 100%;
+  background-color: white;
+  box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%); /* Caché sur la gauche par défaut */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Animation fluide */
+  z-index: 1020; /* Au-dessus de tout */
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvas-menu.active {
+  transform: translateX(0); /* Le fait apparaître */
+}
+
+.offcanvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.offcanvas-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.offcanvas-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
+.offcanvas-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvas-content .nav-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.4rem; /* Plus grand pour le tactile */
+  padding: 1rem 0;
+  text-align: left;
+}
+
+.offcanvas-content .nav-link.active {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.offcanvas-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 1.5rem 0;
+}
+
+.offcanvas-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.offcanvas-socials a {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+/* Fond semi-transparent */
+.offcanvas-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Noir semi-transparent */
+  z-index: 1015; /* Entre le menu et la navbar */
+}
 /* Boutons d'Appel à l'Action (CTA) */
 .cta-button {
   background-color: var(--accent-color);
