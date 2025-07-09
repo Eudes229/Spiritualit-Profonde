@@ -1,42 +1,40 @@
-// src/components/Navbar.jsx (Version finale avec responsivité mobile)
+// src/components/Navbar.jsx (Version finale et propre)
 
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 function Navbar() {
-  // 1. On utilise un état pour savoir si le menu mobile est ouvert ou fermé
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Fonction pour basculer l'état du menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   
-  // Fonction pour fermer le menu (utile quand on clique sur un lien)
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
-  // 2. Effet pour bloquer le scroll de la page quand le menu est ouvert (très pro !)
+  // Effet pour bloquer le scroll de la page quand le menu mobile est ouvert
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'auto'; // Utilisez 'auto' pour restaurer
     }
+    // Nettoyage de l'effet quand le composant est démonté
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
   }, [isMenuOpen]);
 
-  // J'ai simplifié la gestion du style des liens pour utiliser des classes CSS, c'est plus propre.
   return (
-    // On utilise un Fragment (<>) car on va retourner plusieurs éléments au même niveau
     <>
       <header className="navbar">
-        {/* GROUPE DE GAUCHE : Logo ou nom du site */}
         <div className="navbar-logo">
-          <NavLink to="/">SPIRITIA</NavLink>
+          <NavLink to="/" onClick={closeMenu}>SPIRITIA</NavLink>
         </div>
 
-        {/* GROUPE DE DROITE SUR DESKTOP : Les liens de navigation */}
+        {/* Navigation pour les grands écrans */}
         <nav className="navbar-links-desktop">
           <NavLink to="/" className="nav-link" end>Accueil</NavLink>
           <NavLink to="/consultations" className="nav-link">Consultations</NavLink>
@@ -44,7 +42,7 @@ function Navbar() {
           <NavLink to="/contact" className="nav-link">Contact</NavLink>
         </nav>
 
-        {/* BOUTON HAMBURGER POUR MOBILE : n'apparaîtra que sur petits écrans */}
+        {/* Bouton Hamburger pour mobile */}
         <button className="navbar-toggle" onClick={toggleMenu} aria-label="Ouvrir le menu">
           <span className="hamburger-line"></span>
           <span className="hamburger-line"></span>
@@ -52,11 +50,11 @@ function Navbar() {
         </button>
       </header>
       
-      {/* Le conteneur du menu qui apparaît sur le côté (off-canvas) */}
+      {/* Menu latéral (Off-canvas) qui s'ouvre sur mobile */}
       <div className={`offcanvas-menu ${isMenuOpen ? 'active' : ''}`}>
         <div className="offcanvas-header">
           <button className="offcanvas-close" onClick={closeMenu} aria-label="Fermer le menu">
-            ✕
+            × {/* Une croix plus standard */}
           </button>
         </div>
         
@@ -68,7 +66,7 @@ function Navbar() {
         </nav>
       </div>
       
-      {/* Fond semi-transparent qui s'affiche derrière le menu quand il est ouvert */}
+      {/* Fond semi-transparent */}
       {isMenuOpen && <div className="offcanvas-backdrop" onClick={closeMenu}></div>}
     </>
   );
