@@ -84,7 +84,7 @@ const eventsData = [
 
 
 function Home() {
-  const myWhatsappNumber = '22384876466'; 
+  const myWhatsappNumber = '22896170781'; 
 
   // Fonction pour créer un lien WhatsApp personnalisé pour chaque rituel
   const createWhatsAppLink = (ritualTitle) => {
