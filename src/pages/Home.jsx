@@ -13,8 +13,8 @@ import ProductCard from '../components/ProductCard'; // <-- NOUVEAU : Importer l
 // N'oubliez pas de mettre les images correspondantes dans votre dossier `public/images/products/`
 const productsData = [
   { id: 'p1', title: 'Talisman de Protection Suprême', price: '150 €', image: '/images/talisman.jpg' },
-  { id: 'p2', title: 'Bague de Pouvoir Lunaire', price: '100 €', image: '/images/baguedepouvoir.jpg' },
-  { id: 'p3', title: 'Savon de Chance et d\'Abondance', price: '60 €', image: '/images/savon.jpg' },
+  { id: 'p2', title: 'Bague de Pouvoir Lunaire', price: '170 €', image: '/images/baguedepouvoir.jpg' },
+  { id: 'p3', title: 'Savon de Chance et d\'Abondance', price: '100 €', image: '/images/savon.jpg' },
   { id: 'p4', title: 'Pendentif des 7 Chakras', price: '110 €', image: '/images/pendentif.jpg' },
   { id: 'p5', title: 'Encens de Purification Tibétain', price: '80 €', image: '/images/encens.jpg' },
   { id: 'p6', title: 'Huile d\'Onction Sacrée', price: '250 €', image: '/images/huile.jpg' },
