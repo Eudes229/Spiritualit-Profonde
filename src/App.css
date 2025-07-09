@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SPIRITIA - FEUILLE DE STYLE PRINCIPALE (VERSION CORRIGÉE ET UNIFIÉE)
+   SPIRITIA - FEUILLE DE STYLE FINALE (RESPONSIVE ET UNIFIÉE)
    ========================================================================== */
 
 /* --- 1. Variables Globales et Styles de Base --- */
@@ -8,9 +8,12 @@
   --secondary-color: #4a4e5a;
   --accent-color: #5d9cec;
   --accent-hover-color: #4a8ad8;
-  --accent-special-color: #a37fde;
+  --accent-special-color: #a37fde; /* Pour les prix et accents violets */
+  
   --text-color: #333;
   --text-on-dark: #ffffff;
+  --text-on-dark-secondary: #f0f0f0;
+  
   --bg-color: #f8f9fa;
   --card-bg: #ffffff;
   --border-color: #e9ecef;
@@ -125,7 +128,7 @@ p {
   padding: 1rem 1.5rem;
   background-color: var(--card-bg);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  position: sticky; /* Important pour que ça reste en haut */
   top: 0;
   z-index: 1001;
 }
@@ -137,12 +140,12 @@ p {
   text-decoration: none;
 }
 
-/* Liens du menu Desktop cachés sur mobile */
+/* Les liens du menu Desktop sont cachés sur mobile */
 .navbar-links-desktop {
   display: none;
 }
 
-/* Bouton Hamburger */
+/* Bouton Hamburger visible sur mobile */
 .navbar-toggle {
   display: flex;
   flex-direction: column;
@@ -153,6 +156,7 @@ p {
   border: none;
   cursor: pointer;
   padding: 0;
+  z-index: 2001; /* Doit être au-dessus du backdrop */
 }
 
 .hamburger-line {
@@ -202,14 +206,22 @@ p {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: flex-start; /* Aligner le texte à gauche */
 }
 
 .offcanvas-nav .nav-link {
   font-size: 1.5rem;
   padding: 0.5rem 0;
-  color: var(--primary-color);
+  color: var(--secondary-color);
+  text-decoration: none;
 }
 
+.offcanvas-nav .nav-link.active {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Fond semi-transparent */
 .offcanvas-backdrop {
   position: fixed;
   top: 0;
@@ -243,18 +255,18 @@ p {
   border-bottom: none;
 }
 .hero-content p {
-  color: #f0f0f0;
+  color: var(--text-on-dark-secondary);
   font-size: 1.1rem;
 }
 
-/* Grilles génériques */
-.consultations-grid, .products-grid, .gallery-grid, .blog-grid, .figures-grid, .method-steps {
+/* Grilles génériques (Mobile-first : 1 colonne) */
+.consultations-grid, .products-grid, .gallery-grid, .blog-grid, .figures-grid, .method-steps, .zodiac-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Une seule colonne par défaut */
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-/* Styles pour les cartes (consultation, produit, etc.) */
+/* Styles pour les cartes */
 .consultation-card, .product-card, .gallery-item, .blog-post, .zodiac-sign-card, .figure-card, .step {
   background: var(--card-bg);
   border-radius: 10px;
@@ -265,6 +277,11 @@ p {
 .consultation-card:hover, .product-card:hover, .gallery-item:hover, .blog-post:hover, .zodiac-sign-card:hover, .figure-card:hover, .step:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.product-price {
+  color: var(--accent-special-color);
+  font-weight: bold;
 }
 
 /* Page "À Propos" */
@@ -283,6 +300,18 @@ p {
   box-shadow: 0 5px 20px rgba(163, 127, 222, 0.3);
   object-fit: cover;
 }
+.mission-section, .cta-section {
+  background-color: var(--light-bg-section);
+  padding: 3rem 1.5rem;
+  border-radius: 8px;
+  margin: 4rem 0;
+}
+.blog-post {
+  border-left: 4px solid var(--accent-special-color);
+}
+.blog-post h3 {
+  color: var(--primary-color);
+}
 
 /* Grille double (Galerie/Événements) */
 .dual-section-grid {
@@ -291,23 +320,34 @@ p {
   gap: 4rem;
 }
 
+
 /* --- 5. Media Queries pour les écrans plus grands --- */
 
-/* Pour les tablettes et plus */
+/* Pour les tablettes (768px et plus) */
 @media (min-width: 768px) {
   h1 { font-size: 2.5rem; }
   .hero-content h1 { font-size: 3.5rem; }
 
   /* Afficher les liens du bureau et cacher le hamburger */
-  .navbar-links-desktop { display: flex; gap: 1.5rem; }
-  .navbar-toggle { display: none; }
+  .navbar-links-desktop { 
+    display: flex; 
+    gap: 1.5rem; 
+    align-items: center;
+  }
+  .nav-link {
+    text-decoration: none;
+    color: var(--secondary-color);
+  }
+  .nav-link.active {
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+  .navbar-toggle { 
+    display: none; 
+  }
   
   /* Grilles à 2 colonnes */
-  .consultations-grid, .products-grid, .gallery-grid, .zodiac-grid, .figures-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .blog-grid {
+  .consultations-grid, .products-grid, .gallery-grid, .zodiac-grid, .blog-grid, .figures-grid, .method-steps {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -324,7 +364,7 @@ p {
   }
 }
 
-/* Pour les grands écrans */
+/* Pour les grands écrans (1024px et plus) */
 @media (min-width: 1024px) {
   .navbar-links-desktop { gap: 2rem; }
 
