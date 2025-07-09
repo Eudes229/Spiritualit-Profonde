@@ -10,10 +10,10 @@ function FloatingSocials() {
   // =======================================================
   const socialLinks = {
     whatsapp: 'https://wa.me/22896170781',
-    facebook: 'https://www.facebook.com/votrepage',
+    facebook: 'https://www.facebook.com/share/16zzMaJ52d/',
     tiktok: 'https://www.tiktok.com/@spiritualitelegale?_t=ZN-8xt1evXCEaM&_r=1',
     youtube: 'https://youtube.com/@spiritualitesante-officiel',
-    instagram: 'https://www.facebook.com/share/16zzMaJ52d/',
+    instagram: 'https://www.instagram.com/spiritualiteprofonde',
   };
   // =======================================================
 
