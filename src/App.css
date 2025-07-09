@@ -529,3 +529,50 @@ p {
 .social-icon.tiktok { background-color: #000000; }
 .social-icon.youtube { background-color: #FF0000; }
 .social-icon.instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+/* =================================
+   STYLES POUR LES CARTES RITUELS
+   ================================= */
+.rituals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.ritual-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--border-color);
+}
+.ritual-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+.ritual-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.ritual-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+.ritual-content h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+.ritual-content p {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+.ritual-content .cta-button {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
+}

@@ -1,16 +1,15 @@
-// Remplacez le contenu de votre fichier Home.js par celui-ci
+// src/pages/Home.jsx (Version finale avec la section Rituels corrigée et enrichie)
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GalleryItem from '../components/GalleryItem';
 import ConsultationCard from '../components/ConsultationCard';
-import ProductCard from '../components/ProductCard'; // <-- NOUVEAU : Importer le composant produit
+import ProductCard from '../components/ProductCard';
 
 // ========================================================
-// LISTE DES PRODUITS DE LA BOUTIQUE
+// LISTE DES DONNÉES DE LA PAGE
 // ========================================================
-// Ajoutez autant de produits que vous le souhaitez ici.
-// N'oubliez pas de mettre les images correspondantes dans votre dossier `public/images/products/`
+
 const productsData = [
   { id: 'p1', title: 'Talisman de Protection Suprême', price: '150 €', image: '/images/talisman.jpg' },
   { id: 'p2', title: 'Bague de Pouvoir Lunaire', price: '170 €', image: '/images/baguedepouvoir.jpg' },
@@ -26,17 +25,58 @@ const productsData = [
   { id: 'p12', title: 'Amulette Contre le Mauvais Œil', price: '140 €', image: '/images/amulette.jpg' },
 ];
 
-
-// Les données existantes restent les mêmes
 const consultationsData = [
   { id: 'astro', title: 'Consultation Astrologique', description: 'Explorez votre thème astral pour comprendre vos forces et votre chemin de vie.', price: '100 €', image: '/images/astrologie.png', linkTo: '/astrologie' },
   { id: 'geomancy', title: 'Géomancie Divinatoire', description: 'Obtenez des réponses claires à vos questions grâce à cet art divinatoire ancestral.', price: '200 €', image: '/images/geomancie.png', linkTo: '/geomancie' },
   { id: 'numerology', title: 'Analyse Numérologique', description: 'Découvrez la vibration de vos nombres personnels et leur signification.', price: '250 €', image: '/images/numérologie.png', linkTo: '/numerologie' }
 ];
+
+// --- DONNÉES ENRICHIES POUR LA SECTION RITUELS ---
+const ritualsData = [
+  { 
+    id: 'r1', 
+    title: 'Rituel de Déblocage Énergétique', 
+    description: 'Libérez-vous des blocages, des peurs et des énergies stagnantes qui freinent votre progression. Un nouveau départ pour retrouver clarté et dynamisme.',
+    image: '/images/déblocage.jpg',
+  },
+  { 
+    id: 'r2', 
+    title: 'Rituel d\'Attraction de la Chance', 
+    description: 'Alignez vos vibrations avec celles de la chance et des opportunités. Ce rituel est conçu pour ouvrir les portes du hasard favorable dans votre vie.',
+    image: '/images/chance.jpg',
+  },
+  { 
+    id: 'r3', 
+    title: 'Rituel d\'Abondance et de Richesse', 
+    description: 'Levez les barrières mentales liées à la prospérité et attirez l\'abondance financière et matérielle. Connectez-vous à l\'énergie de la richesse universelle.',
+    image: '/images/fortune.jpg',
+  },
+  { 
+    id: 'r4', 
+    title: 'Rituel de la Nouvelle Lune', 
+    description: 'Posez vos intentions et semez les graines de vos futurs succès lors de ce puissant rituel de manifestation. Idéal pour commencer de nouveaux projets.',
+    image: '/images/nouvellelune.jpg',
+  },
+  { 
+    id: 'r5', 
+    title: 'Rituel de Libération des Liens Toxiques', 
+    description: 'Coupez les liens énergétiques négatifs avec des personnes ou des situations passées pour retrouver votre souveraineté et votre paix intérieure.',
+    image: '/images/liberation.jpg',
+  },
+  { 
+    id: 'r6', 
+    title: 'Rituel d\'Amour et d\'Harmonie', 
+    description: 'Attirez un nouvel amour ou renforcez les liens d\'une relation existante en ouvrant votre chakra du cœur à l\'énergie universelle de l\'affection.',
+    image: '/images/amour.jpg',
+  }
+];
+// --- FIN DES DONNÉES RITUELS ---
+
 const imagesData = [
   { id: 1, title: 'Cristaux Énergétiques', description: 'Harmonisez vos chakras.', image: '/images/cristaux.png' },
   { id: 2, title: 'Sanctuaire de Méditation', description: 'Trouvez la paix intérieure.', image: '/images/santu.png' }
 ];
+
 const eventsData = [
   { id: 1, title: 'Cercle de Pleine Lune', description: 'Le 15 du mois prochain.', image: '/images/cercle.png' },
   { id: 2, title: 'Atelier Lithothérapie', description: 'Tous les samedis.', image: '/images/artelier.png' },
@@ -44,9 +84,14 @@ const eventsData = [
 
 
 function Home() {
-  // !! TRÈS IMPORTANT !!
-  // Remplacez le numéro ci-dessous par votre numéro WhatsApp (sans le '+', ni '00')
   const myWhatsappNumber = '22384876466'; 
+
+  // Fonction pour créer un lien WhatsApp personnalisé pour chaque rituel
+  const createWhatsAppLink = (ritualTitle) => {
+    const message = `Bonjour, je suis intéressé(e) par le "${ritualTitle}" et j'aimerais avoir plus d'informations.`;
+    const encodedMessage = encodeURIComponent(message);
+    return `https://wa.me/${myWhatsappNumber}?text=${encodedMessage}`;
+  };
 
   return (
     <>
@@ -59,9 +104,7 @@ function Home() {
 
       <main className="content">
 
-        {/* ======================================================== */}
-        {/* NOUVELLE SECTION : BOUTIQUE SPIRITUELLE                  */}
-        {/* ======================================================== */}
+        {/* SECTION BOUTIQUE SPIRITUELLE (INCHANGÉE) */}
         <section className="home-section">
           <h2>Notre Boutique Spirituelle</h2>
           <div className="products-grid">
@@ -71,14 +114,14 @@ function Home() {
                 image={product.image}
                 title={product.title}
                 price={product.price}
-                whatsappNumber={myWhatsappNumber} // On passe le numéro au composant
+                whatsappNumber={myWhatsappNumber}
               />
             ))}
           </div>
         </section>
 
 
-        {/* SECTION POUR LA CONSULTATION RAPIDE */}
+        {/* SECTION CONSULTATION RAPIDE (INCHANGÉE) */}
         <section className="home-section cta-section">
           <h2>Une Question Urgente ?</h2>
           <p>Obtenez une réponse rapide et ciblée à une question spécifique grâce à notre consultation flash.</p>
@@ -87,7 +130,7 @@ function Home() {
           </Link>
         </section>
 
-        {/* SECTION DES CONSULTATIONS APPROFONDIES */}
+        {/* SECTION CONSULTATIONS APPROFONDIES (INCHANGÉE) */}
         <section className="home-section">
           <h2>Nos Consultations Approfondies</h2>
           <div className="consultations-grid">
@@ -97,23 +140,55 @@ function Home() {
           </div>
         </section>
 
-        {/* SECTION GALERIE */}
+        {/* ======================================================== */}
+        {/* == SECTION "RITUELS GUIDÉS" ENTIÈREMENT MISE À JOUR ==== */}
+        {/* ======================================================== */}
         <section className="home-section">
-          <h2>Galerie d'Inspiration</h2>
-          <div className="gallery-grid">
-            {imagesData.map(item => (
-              <GalleryItem key={item.id} {...item} />
+          <h2>Nos Rituels Guidés</h2>
+          <p className="subtitle">Des cérémonies pas-à-pas pour aligner votre énergie et manifester vos désirs.</p>
+          <div className="rituals-grid">
+            {ritualsData.map(ritual => (
+              <div key={ritual.id} className="ritual-card">
+                <img src={ritual.image} alt={ritual.title} className="ritual-image" />
+                <div className="ritual-content">
+                  <h3>{ritual.title}</h3>
+                  <p>{ritual.description}</p>
+                  {/* Le lien est maintenant un <a> qui génère un message WhatsApp unique */}
+                  <a 
+                    href={createWhatsAppLink(ritual.title)} 
+                    className="cta-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Demander ce Rituel
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </section>
+        {/* ======================================================== */}
 
-        {/* SECTION ÉVÉNEMENTS */}
+
+        {/* SECTION GALERIE & ÉVÉNEMENTS (INCHANGÉE) */}
         <section className="home-section">
-          <h2>Événements à Venir</h2>
-          <div className="gallery-grid">
-            {eventsData.map(item => (
-              <GalleryItem key={item.id} {...item} />
-            ))}
+          <div className="dual-section-grid">
+            <div className="sub-section">
+              <h2>Galerie d'Inspiration</h2>
+              <div className="gallery-grid">
+                {imagesData.map(item => (
+                  <GalleryItem key={item.id} {...item} />
+                ))}
+              </div>
+            </div>
+            <div className="sub-section">
+              <h2>Événements à Venir</h2>
+              <div className="gallery-grid">
+                {eventsData.map(item => (
+                  <GalleryItem key={item.id} {...item} />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -123,4 +198,3 @@ function Home() {
 }
 
 export default Home;
-
