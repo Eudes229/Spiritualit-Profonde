@@ -9,11 +9,11 @@ function FloatingSocials() {
   // == METTEZ VOS LIENS DE RÉSEAUX SOCIAUX ICI ==
   // =======================================================
   const socialLinks = {
-    whatsapp: 'https://wa.me/22384876466',
+    whatsapp: 'https://wa.me/22896170781',
     facebook: 'https://www.facebook.com/votrepage',
-    tiktok: 'https://www.tiktok.com/@votreprofil',
-    youtube: 'https://www.youtube.com/c/votrechaine',
-    instagram: 'https://www.instagram.com/votreprofil',
+    tiktok: 'https://www.tiktok.com/@spiritualitelegale?_t=ZN-8xt1evXCEaM&_r=1',
+    youtube: 'https://youtube.com/@spiritualitesante-officiel',
+    instagram: 'https://www.facebook.com/share/16zzMaJ52d/',
   };
   // =======================================================
 
