@@ -373,3 +373,116 @@ p {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+/* ==========================================================
+   PAGE ASTROLOGIE - STYLES CORRIGÉS POUR LE RESPONSIVE
+   ========================================================== */
+
+.astrology-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.zodiac-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 colonne sur mobile par défaut */
+  gap: 2rem;
+}
+
+.zodiac-sign-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Important pour que l'image ne dépasse pas */
+}
+
+/* === LA CORRECTION EST ICI === */
+.zodiac-image-container {
+  width: 100%;
+  height: 220px; /* On donne une hauteur FIXE au conteneur de l'image */
+  overflow: hidden; /* On cache ce qui dépasse */
+}
+
+.zodiac-image {
+  width: 100%;
+  height: 100%; /* L'image prend 100% de la hauteur de son conteneur */
+  object-fit: cover; /* L'image remplit l'espace sans se déformer */
+  transition: transform 0.4s ease;
+}
+
+.zodiac-sign-card:hover .zodiac-image {
+  transform: scale(1.1); /* Effet de zoom subtil au survol */
+}
+/* === FIN DE LA CORRECTION === */
+
+
+.zodiac-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Permet au contenu de remplir l'espace restant */
+}
+
+.zodiac-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zodiac-header h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.zodiac-symbol {
+  font-size: 2.5rem;
+  color: var(--accent-special-color);
+  line-height: 1;
+}
+
+.zodiac-dates {
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-top: -10px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.zodiac-description {
+  flex-grow: 1; /* Pousse les traits vers le bas */
+}
+
+.zodiac-traits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.trait-column h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.trait-column ul {
+  list-style-type: '– ';
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.trait-column li {
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+}
+
+/* Grille à 2 colonnes sur les écrans plus larges */
+@media (min-width: 992px) {
+  .zodiac-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
