@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import FloatingSocials from './components/FloatingSocials';
 
 // 2. IMPORTS DES PAGES
+import Article from './pages/Article';
 import Actualites from './pages/Actualites';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -18,7 +19,7 @@ import Geomancy from './pages/geomancie';
 import Numerology from './pages/numerologie';
 import Booking from './pages/Booking';
 import NotFound from './pages/NotFound';
-import Article from './pages/Article';
+
 
 
 function App() {
