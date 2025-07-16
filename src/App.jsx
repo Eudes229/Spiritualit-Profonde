@@ -17,6 +17,9 @@ import Geomancy from './pages/geomancie';
 import Numerology from './pages/numerologie';
 import Booking from './pages/Booking';
 import NotFound from './pages/NotFound';
+import Actualites from './pages/Actualites';
+import Article from './pages/Article';
+
 
 function App() {
   return (
@@ -37,6 +40,8 @@ function App() {
           
           {/* --- ROUTES DES SERVICES --- */}
           <Route path="/consultations" element={<Consultations />} />
+          <Route path="/actualites" element={<Actualites />} /> {/* La liste des articles */}
+          <Route path="/actualites/:slug" element={<Article />} /> {/* Un article unique */}
           <Route path="/astrologie" element={<Astrology />} />
           <Route path="/geomancie" element={<Geomancy />} />
           <Route path="/numerologie" element={<Numerology />} />

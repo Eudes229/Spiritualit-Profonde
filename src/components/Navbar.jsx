@@ -40,6 +40,7 @@ function Navbar() {
           <NavLink to="/consultations" className="nav-link">Consultations</NavLink>
           <NavLink to="/a-propos" className="nav-link">À Propos</NavLink>
           <NavLink to="/contact" className="nav-link">Contact</NavLink>
+          <NavLink to="/actualites" className="nav-link">Actualités</NavLink>
         </nav>
 
         {/* Bouton Hamburger pour mobile */}
@@ -61,6 +62,7 @@ function Navbar() {
         <nav className="offcanvas-nav">
           <NavLink to="/" className="nav-link" onClick={closeMenu} end>Accueil</NavLink>
           <NavLink to="/consultations" className="nav-link" onClick={closeMenu}>Consultations</NavLink>
+          <NavLink to="/actualites" className="nav-link" onClick={closeMenu}>Actualités</NavLink>
           <NavLink to="/a-propos" className="nav-link" onClick={closeMenu}>À Propos</NavLink>
           <NavLink to="/contact" className="nav-link" onClick={closeMenu}>Contact</NavLink>
         </nav>
