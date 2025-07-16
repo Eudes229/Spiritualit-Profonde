@@ -1,4 +1,3 @@
-// src/pages/Actualites.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import sanityClient from '../sanityClient';
@@ -7,7 +6,6 @@ function Actualites() {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-    // La requête pour récupérer les articles (en langage GROQ de Sanity)
     sanityClient.fetch(`*[_type == "post"]{
         title,
         slug,
