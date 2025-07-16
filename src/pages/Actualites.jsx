@@ -1,12 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import sanityClient from '../sanityClient';
+import './Actualites.css';
 
 function Actualites() {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-    sanityClient.fetch(`*[_type == "post"]{
+    
+    sanityClient.fetch(`*[_type == "post"] | order(_createdAt desc){
         title,
         slug,
         mainImage{
@@ -19,22 +22,36 @@ function Actualites() {
       }`)
       .then((data) => setPosts(data))
       .catch(console.error);
+    
   }, []);
 
-  if (!posts) return <div>Chargement...</div>;
+  
+  if (!posts) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Chargement des actualités...</p>
+      </div>
+    );
+  }
 
   return (
-    <main>
-      <h1>Actualités du Blog</h1>
-      <div>
+    <main className="actualites-container">
+      <h1 className="actualites-title">Actualités du Blog</h1>
+      <div className="actualites-grid">
         {posts.map((post) => (
-          <article key={post.slug.current}>
-            <Link to={`/actualites/${post.slug.current}`}>
-              {post.mainImage && <img src={post.mainImage.asset.url} alt={post.title} />}
-              <h2>{post.title}</h2>
-              <span>Par {post.name}</span>
-            </Link>
-          </article>
+          <Link to={`/actualites/${post.slug.current}`} key={post.slug.current} className="article-card">
+            <div className="article-card-image-wrapper">
+              <img 
+                src={post.mainImage ? post.mainImage.asset.url : 'url_image_par_defaut.jpg'} 
+                alt={post.title} 
+              />
+            </div>
+            <div className="article-card-content">
+              <h2 className="article-card-title">{post.title}</h2>
+              <span className="article-card-author">Par {post.name}</span>
+            </div>
+          </Link>
         ))}
       </div>
     </main>

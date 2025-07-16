@@ -38,9 +38,10 @@ function Navbar() {
         <nav className="navbar-links-desktop">
           <NavLink to="/" className="nav-link" end>Accueil</NavLink>
           <NavLink to="/consultations" className="nav-link">Consultations</NavLink>
+          <NavLink to="/actualites" className="nav-link">Actualités</NavLink>
           <NavLink to="/a-propos" className="nav-link">À Propos</NavLink>
           <NavLink to="/contact" className="nav-link">Contact</NavLink>
-          <NavLink to="/actualites" className="nav-link">Actualités</NavLink>
+          
         </nav>
 
         {/* Bouton Hamburger pour mobile */}

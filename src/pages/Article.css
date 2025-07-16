@@ -1,0 +1,98 @@
+/* src/pages/Article.css */
+
+.article-container {
+  max-width: 800px; /* Largeur optimale pour la lecture */
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .article-container {
+    padding: 2rem;
+  }
+}
+
+.article-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.article-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .article-title {
+    font-size: 3rem;
+  }
+}
+
+.article-author {
+  color: #555;
+  font-style: italic;
+}
+
+.article-main-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* C'est ici qu'on donne un style de "prose" à notre contenu */
+.article-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.article-body p,
+.article-body ul,
+.article-body ol,
+.article-body blockquote {
+  margin-bottom: 1.5em; /* Espace entre les paragraphes */
+}
+
+.article-body h1,
+.article-body h2,
+.article-body h3 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: #111;
+}
+
+.article-body h1 { font-size: 2em; }
+.article-body h2 { font-size: 1.5em; }
+.article-body h3 { font-size: 1.25em; }
+
+.article-body a {
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(0, 123, 255, 0.2);
+  transition: background-color 0.2s;
+}
+
+.article-body a:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.article-body blockquote {
+  border-left: 4px solid #007bff;
+  padding-left: 1em;
+  font-style: italic;
+  color: #555;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 1.5em;
+}
