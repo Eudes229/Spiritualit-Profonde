@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // <--- 1. IMPORTER L'OUTIL SEO
 import ZodiacSign from '../components/ZodiacSign';
 
 // Données complètes pour les 12 signes avec plus de détails
@@ -234,7 +235,66 @@ const zodiacData = [
 ];
 
 function Astrology() {
-  return (
+   return (
+     <>
+
+      {/* ====================================================== */}
+      {/* 2. SEO PUISSANT POUR LA PAGE DES SIGNES ASTROLOGIQUES  */}
+      {/* ====================================================== */}
+      <Helmet>
+        <title>Guide Complet des 12 Signes du Zodiaque - Caractéristiques & Compatibilité</title>
+        <meta name="description" content="Explorez le guide complet des 12 signes astrologiques. Découvrez les caractéristiques, dates, compatibilité amoureuse et secrets de votre signe du zodiaque." />
+        <link rel="canonical" href="https://spiritualiteprofonde.com/astrologie" /> {/* Adaptez l'URL si elle est différente */}
+
+        {/* --- OPEN GRAPH (Facebook, WhatsApp, etc.) --- */}
+        <meta property="og:title" content="Le Guide Ultime des 12 Signes du Zodiaque | Spiritia" />
+        <meta property="og:description" content="Bélier, Taureau, Gémeaux... Découvrez le profil complet de chaque signe astrologique, de la personnalité à la compatibilité amoureuse." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://spiritualiteprofonde.com/astrologie" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-zodiaque.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Spiritia" />
+        <meta property="og:locale" content="fr_FR" />
+
+        {/* --- TWITTER CARDS --- */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Le Guide Ultime des 12 Signes du Zodiaque | Spiritia" />
+        <meta name="twitter:description" content="Bélier, Taureau, Gémeaux... Découvrez le profil complet de chaque signe astrologique." />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-zodiaque.jpg" />
+
+        {/* --- DONNÉES STRUCTURÉES (Schema.org) pour un guide complet --- */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://spiritualiteprofonde.com/astrologie"
+              },
+              "headline": "Le Guide Complet des 12 Signes du Zodiaque",
+              "description": "Un guide détaillé explorant les caractéristiques, dates, éléments, planètes gouvernantes et compatibilités amoureuses de chaque signe astrologique du zodiaque.",
+              "image": "https://spiritualiteprofonde.com/og-image-zodiaque.jpg",
+              "author": {
+                "@type": "Organization",
+                "name": "Spiritia"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Spiritia",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://spiritualiteprofonde.com/images/logoact.jpeg"
+                }
+              }
+            }
+          `}
+        </script>
+      </Helmet>
+      {/* ====================================================== */}
+      {/* FIN DU BLOC SEO                                        */}
+      {/* ====================================================== */}
     <div className="astrology-container">
       <header className="astrology-header">
         <h1>Le Guide Complet des Signes du Zodiaque</h1>
@@ -252,6 +312,7 @@ function Astrology() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 

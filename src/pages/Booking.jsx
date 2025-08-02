@@ -1,6 +1,7 @@
 // src/pages/Booking.jsx (Version finale avec redirection WhatsApp)
 
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async'; // <--- 1. IMPORTER L'OUTIL SEO
 // Import des icônes pour un meilleur design
 import { FaUser, FaEnvelope, FaQuestionCircle, FaWhatsapp } from 'react-icons/fa';
 
@@ -53,6 +54,57 @@ Merci de m'indiquer la prochaine étape pour le paiement.
   };
 
   return (
+    <>
+      {/* ====================================================== */}
+      {/* 2. SEO PUISSANT POUR LA PAGE DE RÉSERVATION            */}
+      {/* ====================================================== */}
+      <Helmet>
+        <title>Réserver une Consultation Flash de Voyance (25€) - Spiritia</title>
+        <meta name="description" content="Posez votre question urgente et obtenez une réponse rapide. Réservez votre consultation flash de voyance ou d'astrologie pour une guidance claire et personnalisée." />
+        <link rel="canonical" href="https://spiritualiteprofonde.com/booking" /> {/* Adaptez l'URL si elle est différente */}
+
+        {/* --- OPEN GRAPH (Facebook, WhatsApp, etc.) --- */}
+        <meta property="og:title" content="Consultation Flash (25€) - Une Réponse Rapide à Votre Question" />
+        <meta property="og:description" content="Vous avez une question urgente ? Obtenez une guidance personnalisée rapidement avec notre service de consultation flash." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://spiritualiteprofonde.com/booking" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-booking.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Spiritia" />
+        <meta property="og:locale" content="fr_FR" />
+
+        {/* --- TWITTER CARDS --- */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Consultation Flash (25€) - Une Réponse Rapide à Votre Question" />
+        <meta name="twitter:description" content="Vous avez une question urgente ? Obtenez une guidance personnalisée rapidement." />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-booking.jpg" />
+
+        {/* --- DONNÉES STRUCTURÉES (Schema.org) pour un service spécifique --- */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Consultation Flash de Voyance",
+              "description": "Un service de consultation rapide par email ou WhatsApp pour répondre à une question spécifique en astrologie, tarot ou autre domaine spirituel.",
+              "provider": {
+                "@type": "Organization",
+                "name": "Spiritia"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "25.00",
+                "priceCurrency": "EUR"
+              },
+              "serviceType": "Consultation Spirituelle"
+            }
+          `}
+        </script>
+      </Helmet>
+      {/* ====================================================== */}
+      {/* FIN DU BLOC SEO                                        */}
+      {/* ====================================================== */}
     <main className="content booking-page">
       <div className="booking-header">
         <h1>Réserver une Consultation Flash</h1>
@@ -93,6 +145,7 @@ Merci de m'indiquer la prochaine étape pour le paiement.
         </div>
       </form>
     </main>
+    </>
   );
 }
 

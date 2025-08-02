@@ -2,6 +2,7 @@
 
 import React from 'react';
 // Il n'y a pas besoin d'importer 'Link' ici, car tous les liens sont gérés par le composant lui-même.
+import { Helmet } from 'react-helmet-async'; // <--- 1. IMPORTER L'OUTIL SEO
 
 function Geomancy() {
   // --- DÉBUT DE LA LOGIQUE WHATSAPP ---
@@ -16,6 +17,52 @@ function Geomancy() {
   // --- FIN DE LA LOGIQUE WHATSAPP ---
 
   return (
+     <>
+      {/* ====================================================== */}
+      {/* 2. SEO PUISSANT POUR LA PAGE GÉOMANCIE                 */}
+      {/* ====================================================== */}
+      <Helmet>
+        <title>Géomancie Divinatoire - Consultation & Apprendre les Bases</title>
+        <meta name="description" content="Découvrez la géomancie, l'art divinatoire ancestral de la terre. Apprenez la signification des 16 figures et réservez une consultation pour des réponses claires." />
+        <link rel="canonical" href="https://spiritualiteprofonde.com/geomancie" /> {/* Adaptez l'URL si elle est différente */}
+
+        {/* --- OPEN GRAPH (Facebook, WhatsApp, etc.) --- */}
+        <meta property="og:title" content="La Géomancie Divinatoire : L'Art de Lire les Messages de la Terre" />
+        <meta property="og:description" content="Découvrez cet art divinatoire ancestral pour obtenir des réponses précises sur votre avenir. Guide complet et consultation." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://spiritualiteprofonde.com/geomancie" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-geomancie.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Spiritia" />
+        <meta property="og:locale" content="fr_FR" />
+
+        {/* --- TWITTER CARDS --- */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="La Géomancie Divinatoire : L'Art de Lire les Messages de la Terre" />
+        <meta name="twitter:description" content="Découvrez cet art divinatoire ancestral pour obtenir des réponses précises sur votre avenir." />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-geomancie.jpg" />
+
+        {/* --- DONNÉES STRUCTURÉES (Schema.org) pour le service ET le guide --- */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Consultation de Géomancie Divinatoire",
+              "description": "Un service de voyance basé sur l'art de la géomancie pour interpréter les 16 figures sacrées et fournir des réponses claires sur des questions d'amour, de carrière ou de décisions importantes.",
+              "provider": {
+                "@type": "Organization",
+                "name": "Spiritia"
+              },
+              "serviceType": "Consultation Spirituelle"
+            }
+          `}
+        </script>
+      </Helmet>
+      {/* ====================================================== */}
+      {/* FIN DU BLOC SEO                                        */}
+      {/* ====================================================== */}
     <div className="geomancy-container">
       <h1>La Géomancie Divinatoire</h1>
       <p className="subtitle">L'art ancestral de lire les messages de la Terre</p>
@@ -124,6 +171,7 @@ function Geomancy() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

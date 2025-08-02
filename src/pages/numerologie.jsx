@@ -2,6 +2,52 @@ import React from 'react';
 
 function Numerology() {
   return (
+     <>
+      {/* ====================================================== */}
+      {/* 2. SEO PUISSANT POUR LA PAGE NUMÉROLOGIE               */}
+      {/* ====================================================== */}
+      <Helmet>
+        <title>Numérologie : Calculer votre Chemin de Vie & Signification des Nombres</title>
+        <meta name="description" content="Découvrez les secrets de la numérologie. Apprenez à calculer votre chemin de vie à partir de votre date de naissance et comprenez la signification de chaque nombre pour votre destin." />
+        <link rel="canonical" href="https://spiritualiteprofonde.com/numerologie" /> {/* Adaptez l'URL si elle est différente */}
+
+        {/* --- OPEN GRAPH (Facebook, WhatsApp, etc.) --- */}
+        <meta property="og:title" content="Numérologie : Calculez Votre Chemin de Vie | Spiritia" />
+        <meta property="og:description" content="Votre date de naissance cache un code secret. Découvrez comment calculer votre chemin de vie et ce qu'il révèle sur votre personnalité et votre mission." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://spiritualiteprofonde.com/numerologie" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-numerologie.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Spiritia" />
+        <meta property="og:locale" content="fr_FR" />
+
+        {/* --- TWITTER CARDS --- */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Numérologie : Calculez Votre Chemin de Vie | Spiritia" />
+        <meta name="twitter:description" content="Votre date de naissance cache un code secret. Découvrez comment calculer votre chemin de vie." />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-numerologie.jpg" />
+
+        {/* --- DONNÉES STRUCTURÉES (Schema.org) pour un guide et un service --- */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Consultation de Numérologie Complète",
+              "description": "Un service d'analyse numérologique pour calculer et interpréter votre thème complet (Chemin de Vie, Nombre d'Expression, etc.) et révéler vos talents, défis et votre mission d'âme.",
+              "provider": {
+                "@type": "Organization",
+                "name": "Spiritia"
+              },
+              "serviceType": "Consultation Spirituelle"
+            }
+          `}
+        </script>
+      </Helmet>
+      {/* ====================================================== */}
+      {/* FIN DU BLOC SEO                                        */}
+      {/* ====================================================== */}
     <div className="numerology-container">
       <h1>La Puissance de la Numérologie</h1>
       <p className="subtitle">Décryptez les messages cachés dans vos nombres.</p>
@@ -70,6 +116,7 @@ function Numerology() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

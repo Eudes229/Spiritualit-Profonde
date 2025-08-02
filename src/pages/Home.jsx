@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // <--- 1. IMPORTER L'OUTIL SEO
 import GalleryItem from '../components/GalleryItem';
 import ConsultationCard from '../components/ConsultationCard';
 import ProductCard from '../components/ProductCard';
@@ -95,6 +96,52 @@ function Home() {
 
   return (
     <>
+     {/* ====================================================== */}
+      {/* 2. SEO PUISSANT POUR LA PAGE D'ACCUEIL                 */}
+      {/* ====================================================== */}
+      <Helmet>
+        <title>Spiritia - Votre Guide Spirituel pour Astrologie, Tarot et Rituels</title>
+        <meta name="description" content="Découvrez votre chemin spirituel avec Spiritia. Consultations personnalisées en astrologie, géomancie, tarot, et rituels guidés pour manifester vos désirs." />
+        <link rel="canonical" href="https://spiritualiteprofonde.com/" />
+
+        {/* --- OPEN GRAPH (Facebook, WhatsApp, etc.) --- */}
+        <meta property="og:title" content="Spiritia - Votre Guide Spirituel Complet" />
+        <meta property="og:description" content="Explorez votre potentiel avec nos consultations, rituels et produits spirituels. Votre voyage commence ici." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://spiritualiteprofonde.com/" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/image/logoact.jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Spiritia" />
+        <meta property="og:locale" content="fr_FR" />
+
+        {/* --- TWITTER CARDS --- */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Spiritia - Votre Guide Spirituel Complet" />
+        <meta name="twitter:description" content="Explorez votre potentiel avec nos consultations, rituels et produits spirituels. Votre voyage commence ici." />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/image/logoact.jpeg" />
+
+        {/* --- DONNÉES STRUCTURÉES (SCHEMA.ORG) --- */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Spiritia",
+              "url": "https://spiritualiteprofonde.com/",
+              "logo": "https://spiritualiteprofonde.com/images/logoact.jpeg",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+22896170781",
+                "contactType": "Customer Service"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
+      {/* ====================================================== */}
+      {/* FIN DU BLOC SEO                                        */}
+      {/* ====================================================== */}
       <header className="hero-section">
         <div className="hero-content">
           <h1>Explorez Votre Spiritualité</h1>

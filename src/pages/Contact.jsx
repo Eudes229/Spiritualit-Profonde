@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 // 1. Importer les icônes que nous allons utiliser
+import { Helmet } from 'react-helmet-async'; // <--- 1. IMPORTER L'OUTIL SEO
 import { FaUser, FaEnvelope, FaPen, FaPaperPlane } from 'react-icons/fa';
 
 function Contact() {
@@ -53,6 +54,35 @@ function Contact() {
   };
 
   return (
+    <>
+      {/* ====================================================== */}
+      {/* 2. SEO PUISSANT POUR LA PAGE CONTACT                   */}
+      {/* ====================================================== */}
+      <Helmet>
+        <title>Contactez Spiritia - Prenez Rendez-vous pour une Consultation</title>
+        <meta name="description" content="Contactez notre cabinet pour toute demande de consultation en astrologie, tarot ou pour un rituel. Nous sommes à votre écoute pour vous guider." />
+        <link rel="canonical" href="https://spiritualiteprofonde.com/contact" />
+
+        {/* --- OPEN GRAPH (Facebook, WhatsApp, etc.) --- */}
+        <meta property="og:title" content="Contactez Spiritia - Nous Sommes à Votre Écoute" />
+        <meta property="og:description" content="Pour une question, une demande de consultation ou un partenariat, notre équipe est là pour vous répondre." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://spiritualiteprofonde.com/contact" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-contact.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Spiritia" />
+        <meta property="og:locale" content="fr_FR" />
+
+        {/* --- TWITTER CARDS --- */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contactez Spiritia - Nous Sommes à Votre Écoute" />
+        <meta name="twitter:description" content="Pour une question, une demande de consultation ou un partenariat, notre équipe est là pour vous répondre." />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-contact.jpg" />
+      </Helmet>
+      {/* ====================================================== */}
+      {/* FIN DU BLOC SEO                                        */}
+      {/* ====================================================== */}
     <main className="content">
       <div className="contact-header">
         <h1>Contactez-Nous</h1>
@@ -95,6 +125,7 @@ function Contact() {
         </form>
       </div>
     </main>
+    </>
   );
 }
 
