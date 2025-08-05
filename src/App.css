@@ -803,3 +803,20 @@ p {
 .form-fields .form-submit-btn {
   width: 100%;
 }
+/* ==========================================================================
+   CORRECTIF POUR L'IMAGE D'ACCUEIL SUR IOS (IPHONE/IPAD)
+   ========================================================================== */
+
+/* 
+  Cette règle cible les appareils tactiles et les navigateurs qui ont une mauvaise 
+  prise en charge de `background-attachment: fixed;`.
+  Elle s'appliquera principalement aux tablettes et aux mobiles.
+*/
+@media (max-width: 1024px) {
+  .hero-section {
+    /* On désactive l'effet de parallaxe qui pose problème sur iOS.
+       'scroll' est la valeur par défaut qui assure que l'image s'affiche
+       et défile avec la page. */
+    background-attachment: scroll;
+  }
+}
