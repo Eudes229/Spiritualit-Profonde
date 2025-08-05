@@ -109,7 +109,7 @@ function Home() {
         <meta property="og:description" content="Explorez votre potentiel avec nos consultations, rituels et produits spirituels. Votre voyage commence ici." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/image/logoact.jpeg" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -119,7 +119,7 @@ function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Spiritia - Votre Guide Spirituel Complet" />
         <meta name="twitter:description" content="Explorez votre potentiel avec nos consultations, rituels et produits spirituels. Votre voyage commence ici." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/image/logoact.jpeg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
 
         {/* --- DONNÉES STRUCTURÉES (SCHEMA.ORG) --- */}
         <script type="application/ld+json">
@@ -129,7 +129,7 @@ function Home() {
               "@type": "Organization",
               "name": "Spiritia",
               "url": "https://spiritualiteprofonde.com/",
-              "logo": "https://spiritualiteprofonde.com/images/logoact.jpeg",
+              "logo": "https://spiritualiteprofonde.com/images/lelogo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+22896170781",

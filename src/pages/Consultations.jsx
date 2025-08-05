@@ -48,7 +48,7 @@ function Consultations() {
         <meta property="og:description" content="Trouvez la guidance dont vous avez besoin. Explorez nos consultations personnalisées pour des réponses claires." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/consultations" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-consultations.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" /> {/* Créez cette image ! */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -58,7 +58,7 @@ function Consultations() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Nos Consultations Spirituelles | Astrologie, Géomancie, Numérologie" />
         <meta name="twitter:description" content="Trouvez la guidance dont vous avez besoin. Explorez nos consultations personnalisées." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-consultations.jpg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
 
         {/* --- DONNÉES STRUCTURÉES (Schema.org) pour une liste de services --- */}
         <script type="application/ld+json">

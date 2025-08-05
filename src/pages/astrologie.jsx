@@ -251,7 +251,7 @@ function Astrology() {
         <meta property="og:description" content="Bélier, Taureau, Gémeaux... Découvrez le profil complet de chaque signe astrologique, de la personnalité à la compatibilité amoureuse." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/astrologie" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-zodiaque.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" /> {/* Créez cette image ! */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -261,7 +261,7 @@ function Astrology() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Le Guide Ultime des 12 Signes du Zodiaque | Spiritia" />
         <meta name="twitter:description" content="Bélier, Taureau, Gémeaux... Découvrez le profil complet de chaque signe astrologique." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-zodiaque.jpg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
 
         {/* --- DONNÉES STRUCTURÉES (Schema.org) pour un guide complet --- */}
         <script type="application/ld+json">
@@ -285,7 +285,7 @@ function Astrology() {
                 "name": "Spiritia",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://spiritualiteprofonde.com/images/logoact.jpeg"
+                  "url": "https://spiritualiteprofonde.com/images/lelogo.png"
                 }
               }
             }

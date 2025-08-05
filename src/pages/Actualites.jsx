@@ -53,7 +53,7 @@ function Actualites() {
         <meta property="og:description" content="Explorez nos articles et guides pour approfondir votre chemin spirituel." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/actualites" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/images/logoact.jpeg" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -63,7 +63,7 @@ function Actualites() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Actualités & Blog Spirituel | Spiritia" />
         <meta name="twitter:description" content="Explorez nos articles et guides pour approfondir votre chemin spirituel." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/logoact.jpeg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
       </Helmet>
       {/* ====================================================== */}
       {/* FIN DU BLOC SEO                                        */}

@@ -68,7 +68,7 @@ Merci de m'indiquer la prochaine étape pour le paiement.
         <meta property="og:description" content="Vous avez une question urgente ? Obtenez une guidance personnalisée rapidement avec notre service de consultation flash." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/booking" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/images/logoact.jpeg" /> {/* Créez cette image ! */}
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" /> {/* Créez cette image ! */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -78,7 +78,7 @@ Merci de m'indiquer la prochaine étape pour le paiement.
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Consultation Flash (25€) - Une Réponse Rapide à Votre Question" />
         <meta name="twitter:description" content="Vous avez une question urgente ? Obtenez une guidance personnalisée rapidement." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/logoact.jpeg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
 
         {/* --- DONNÉES STRUCTURÉES (Schema.org) pour un service spécifique --- */}
         <script type="application/ld+json">

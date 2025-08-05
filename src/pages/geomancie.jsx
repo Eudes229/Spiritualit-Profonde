@@ -31,7 +31,7 @@ function Geomancy() {
         <meta property="og:description" content="Découvrez cet art divinatoire ancestral pour obtenir des réponses précises sur votre avenir. Guide complet et consultation." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/geomancie" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-geomancie.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" /> {/* Créez cette image ! */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -41,7 +41,7 @@ function Geomancy() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="La Géomancie Divinatoire : L'Art de Lire les Messages de la Terre" />
         <meta name="twitter:description" content="Découvrez cet art divinatoire ancestral pour obtenir des réponses précises sur votre avenir." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-geomancie.jpg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
 
         {/* --- DONNÉES STRUCTURÉES (Schema.org) pour le service ET le guide --- */}
         <script type="application/ld+json">

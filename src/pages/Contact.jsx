@@ -68,7 +68,7 @@ function Contact() {
         <meta property="og:description" content="Pour une question, une demande de consultation ou un partenariat, notre équipe est là pour vous répondre." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/contact" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-contact.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" /> {/* Créez cette image ! */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -78,7 +78,7 @@ function Contact() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contactez Spiritia - Nous Sommes à Votre Écoute" />
         <meta name="twitter:description" content="Pour une question, une demande de consultation ou un partenariat, notre équipe est là pour vous répondre." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-contact.jpg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
       </Helmet>
       {/* ====================================================== */}
       {/* FIN DU BLOC SEO                                        */}

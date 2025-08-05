@@ -17,7 +17,7 @@ function Numerology() {
         <meta property="og:description" content="Votre date de naissance cache un code secret. Découvrez comment calculer votre chemin de vie et ce qu'il révèle sur votre personnalité et votre mission." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/numerologie" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/og-image-numerologie.jpg" /> {/* Créez cette image ! */}
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" /> {/* Créez cette image ! */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -27,7 +27,7 @@ function Numerology() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Numérologie : Calculez Votre Chemin de Vie | Spiritia" />
         <meta name="twitter:description" content="Votre date de naissance cache un code secret. Découvrez comment calculer votre chemin de vie." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/og-image-numerologie.jpg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
 
         {/* --- DONNÉES STRUCTURÉES (Schema.org) pour un guide et un service --- */}
         <script type="application/ld+json">

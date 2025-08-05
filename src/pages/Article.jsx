@@ -120,7 +120,7 @@ function Article() {
                 "name": "Spiritia",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://spiritualiteprofonde.com/images/logoact.jpeg"
+                  "url": "https://spiritualiteprofonde.com/images/lelogo.png"
                 }
               },
               "datePublished": "${post.publishedAt}"

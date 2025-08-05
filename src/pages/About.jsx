@@ -51,7 +51,7 @@ function About() {
         <meta property="og:description" content="Découvrez la mission et la philosophie de A. Esprit, votre guide dédié à l'éveil et à la guérison de l'âme." />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://spiritualiteprofonde.com/a-propos" />
-        <meta property="og:image" content="https://spiritualiteprofonde.com/images/spirituel.jpg" />
+        <meta property="og:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Spiritia" />
@@ -61,7 +61,7 @@ function About() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="À Propos de Spiritia - Mon Histoire, Votre Guide" />
         <meta name="twitter:description" content="Découvrez la mission et la philosophie de A. Esprit, votre guide dédié à l'éveil et à la guérison de l'âme." />
-        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/spirituel.jpg" />
+        <meta name="twitter:image" content="https://spiritualiteprofonde.com/images/lelogo.png" />
       </Helmet>
       {/* ====================================================== */}
       {/* FIN DU BLOC SEO                                        */}
