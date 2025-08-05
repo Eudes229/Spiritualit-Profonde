@@ -1,4 +1,4 @@
-// src/pages/Actualites.jsx (Version finale avec SEO Puissant intégré)
+// src/views/Actualites.jsx (Version finale avec SEO Puissant intégré)
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-// src/pages/Article.jsx (Version finale corrigée et optimisée)
+// src/views/Article.jsx (Version finale corrigée et optimisée)
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';

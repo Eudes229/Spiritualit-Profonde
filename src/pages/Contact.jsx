@@ -1,4 +1,4 @@
-// src/pages/Contact.jsx (Version finale améliorée)
+// src/views/Contact.jsx (Version finale améliorée)
 
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';

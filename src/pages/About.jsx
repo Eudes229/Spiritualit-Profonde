@@ -1,4 +1,4 @@
-// src/pages/About.jsx (Version finale corrigée et optimisée)
+// src/views/About.jsx (Version finale corrigée et optimisée)
 
 import React from 'react';
 import { Link } from 'react-router-dom';

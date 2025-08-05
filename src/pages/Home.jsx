@@ -1,4 +1,4 @@
-// src/pages/Home.jsx (Version finale avec la section Rituels corrigée et enrichie)
+// src/views/Home.jsx (Version finale avec la section Rituels corrigée et enrichie)
 
 import React from 'react';
 import { Link } from 'react-router-dom';

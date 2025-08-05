@@ -1,4 +1,4 @@
-// src/pages/geomancie.jsx (Version corrigée avec le lien WhatsApp)
+// src/views/geomancie.jsx (Version corrigée avec le lien WhatsApp)
 
 import React from 'react';
 // Il n'y a pas besoin d'importer 'Link' ici, car tous les liens sont gérés par le composant lui-même.
