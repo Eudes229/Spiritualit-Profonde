@@ -12,24 +12,24 @@ import ProductCard from '../components/ProductCard';
 // ========================================================
 
 const productsData = [
-  { id: 'p1', title: 'Talisman de Protection Suprême', price: '150 €', image: '/images/talisman.jpg' },
-  { id: 'p2', title: 'Bague de Pouvoir Lunaire', price: '170 €', image: '/images/baguedepouvoir.jpg' },
+  { id: 'p1', title: 'Talisman de Protection Suprême', price: '110 €', image: '/images/talisman.jpg' },
+  { id: 'p2', title: 'Bague de Pouvoir Lunaire', price: '140 €', image: '/images/baguedepouvoir.jpg' },
   { id: 'p3', title: 'Savon de Chance et d\'Abondance', price: '100 €', image: '/images/savon.jpg' },
   { id: 'p4', title: 'Pendentif des 7 Chakras', price: '110 €', image: '/images/pendentif.jpg' },
   { id: 'p5', title: 'Encens de Purification Tibétain', price: '80 €', image: '/images/encens.jpg' },
-  { id: 'p6', title: 'Huile d\'Onction Sacrée', price: '250 €', image: '/images/huile.jpg' },
-  { id: 'p7', title: 'Cristal de Quartz Rose Amour', price: '300 €', image: '/images/cristal.png' },
-  { id: 'p8', title: 'Miroir Noir de Divination', price: '550 €', image: '/images/miroir.jpg' },
-  { id: 'p9', title: 'Kit de Rituel de Prospérité', price: '500 €', image: '/images/kit.jpg' },
+  { id: 'p6', title: 'Huile d\'Onction Sacrée', price: '150 €', image: '/images/huile.jpg' },
+  { id: 'p7', title: 'Cristal de Quartz Rose Amour', price: '190 €', image: '/images/cristal.png' },
+  { id: 'p8', title: 'Miroir Noir de Divination', price: '210 €', image: '/images/miroir.jpg' },
+  { id: 'p9', title: 'Kit de Rituel de Prospérité', price: '195 €', image: '/images/kit.jpg' },
   { id: 'p10', title: 'Bougie d\'Intention "Paix Intérieure"', price: '120 €', image: '/images/bougie.jpg' },
-  { id: 'p11', title: 'Eau de Floride Énergétique', price: '150 €', image: '/images/eau.jpg' },
+  { id: 'p11', title: 'Eau de Floride Énergétique', price: '130 €', image: '/images/eau.jpg' },
   { id: 'p12', title: 'Amulette Contre le Mauvais Œil', price: '140 €', image: '/images/amulette.jpg' },
 ];
 
 const consultationsData = [
-  { id: 'astro', title: 'Consultation Astrologique', description: 'Explorez votre thème astral pour comprendre vos forces et votre chemin de vie.', price: '100 €', image: '/images/astrologie.png', linkTo: '/astrologie' },
-  { id: 'geomancy', title: 'Géomancie Divinatoire', description: 'Obtenez des réponses claires à vos questions grâce à cet art divinatoire ancestral.', price: '200 €', image: '/images/geomancie.png', linkTo: '/geomancie' },
-  { id: 'numerology', title: 'Analyse Numérologique', description: 'Découvrez la vibration de vos nombres personnels et leur signification.', price: '250 €', image: '/images/numérologie.png', linkTo: '/numerologie' }
+  { id: 'astro', title: 'Consultation Astrologique', description: 'Explorez votre thème astral pour comprendre vos forces et votre chemin de vie.', price: '30 €', image: '/images/astrologie.png', linkTo: '/astrologie' },
+  { id: 'geomancy', title: 'Géomancie Divinatoire', description: 'Obtenez des réponses claires à vos questions grâce à cet art divinatoire ancestral.', price: '45 €', image: '/images/geomancie.png', linkTo: '/geomancie' },
+  { id: 'numerology', title: 'Analyse Numérologique', description: 'Découvrez la vibration de vos nombres personnels et leur signification.', price: '40 €', image: '/images/numérologie.png', linkTo: '/numerologie' }
 ];
 
 // --- DONNÉES ENRICHIES POUR LA SECTION RITUELS ---

@@ -10,7 +10,7 @@ const consultationsData = [
     id: 'astro',
     title: 'Consultation Astrologique',
     description: 'Explorez votre thème astral pour comprendre vos forces, vos faiblesses et votre véritable chemin de vie. Une lecture approfondie de votre carte du ciel.',
-    price: '100 €',
+    price: '30 €',
     image: '/images/astrologie.png',
     linkTo: '/astrologie' // Lien vers une future page de réservation
   },
@@ -18,7 +18,7 @@ const consultationsData = [
     id: 'geomancy',
     title: 'Géomancie Divinatoire',
     description: 'Posez vos questions les plus pressantes et obtenez des réponses claires et directes grâce à cet art divinatoire ancestral basé sur l\'interprétation des figures de la terre.',
-    price: '200 €',
+    price: '45 €',
     image: '/images/geomancie.png',
     linkTo: '/geomancie'
   },
@@ -26,7 +26,7 @@ const consultationsData = [
     id: 'numerology',
     title: 'Analyse Numérologique Complète',
     description: 'Découvrez la vibration de vos nombres personnels (chemin de vie, nombre d\'expression, etc.) et comment ils influencent votre personnalité et votre destinée.',
-    price: '250 €',
+    price: '40 €',
     image: '/images/numérologie.png',
     linkTo: '/numerologie'
   }
