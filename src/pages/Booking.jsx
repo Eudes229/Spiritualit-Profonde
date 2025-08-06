@@ -1,4 +1,4 @@
-// src/views/Booking.jsx (Version finale avec redirection WhatsApp)
+// src/pages/Booking.jsx (Version finale avec redirection WhatsApp)
 
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async'; // <--- 1. IMPORTER L'OUTIL SEO
@@ -24,7 +24,7 @@ function Booking() {
 
     // 1. Vos informations
     const myWhatsappNumber = '22896170781'; // Votre numéro WhatsApp
-    const serviceName = 'Consultation Flash (25€)';
+    const serviceName = 'Consultation Flash (12000 FCFA)';
 
     // 2. Construction du message à partir des données du formulaire
     const message = `

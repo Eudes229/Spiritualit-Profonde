@@ -37,7 +37,9 @@ function App() {
           {/* --- ROUTES DES SERVICES --- */}
           <Route path="/consultations" element={<Consultations />} />
           <Route path="/actualites" element={<Actualites />} /> {/* La liste des articles */}
+           <Route path="/Actualites" element={<Actualites />} />  {/* Ligne ajoutée pour la robustesse */}
           <Route path="/actualites/:slug" element={<Article />} /> {/* Un article unique */}
+          <Route path="/Actualites/:slug" element={<Article />} />  {/* <-- LA LIGNE AJOUTÉE QUI RÈGLE TOUT */}
           <Route path="/astrologie" element={<Astrology />} />
           <Route path="/geomancie" element={<Geomancy />} />
           <Route path="/numerologie" element={<Numerology />} />
