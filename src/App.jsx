@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import FloatingSocials from './components/FloatingSocials';
 
-import Article from './pages/Article';
+import Article from './pages/Article.jsx';
 import Actualites from './pages/Actualites';
 import Home from './pages/Home';
 import About from './pages/About';

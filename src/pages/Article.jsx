@@ -1,5 +1,4 @@
-// src/views/Article.jsx (Version finale corrigée et optimisée)
-
+// src/pages/Article.jsx (Version finale corrigée et optimisée)
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -66,8 +65,7 @@ function Article() {
   // PRÉPARATION DES DONNÉES SEO (À L'INTÉRIEUR DU COMPOSANT)
   const pageUrl = `https://spiritualiteprofonde.com/actualites/${post.slug.current}`;
   const pageTitle = `${post.title} | Spiritia`;
-  const pageDescription = post.excerpt || (post.body ? new BlockContent({ blocks: [post.body[0]] }).toJSON().join('').substring(0, 155) + '...' : "Découvrez cet article sur Spiritia.");
-
+const pageDescription = post.excerpt || (post.body && post.body.length > 0 ? new BlockContent({ blocks: [post.body[0]] }).toJSON().join('').substring(0, 155) + '...' : "Découvrez cet article sur Spiritia.");
   return (
     // ON UTILISE UN FRAGMENT <> POUR ENTOURER LE JSX
     <>
@@ -146,14 +144,16 @@ function Article() {
           />
         )}
         
-        <div className="article-body">
-  <BlockContent
-    blocks={post.body}
-    projectId="qoljwjfa" // <--- REMPLACEZ PAR VOTRE VRAI ID
-    dataset="production"
-    serializers={serializers} 
-  />
-</div>
+       {post.body && (
+  <div className="article-body">
+    <BlockContent
+      blocks={post.body}
+      projectId="qoljwjfa" 
+      dataset="production"
+      serializers={serializers} 
+    />
+  </div>
+)}
       </article>
     </>
   );
