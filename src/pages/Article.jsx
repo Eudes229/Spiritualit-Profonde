@@ -147,13 +147,13 @@ function Article() {
         )}
         
         <div className="article-body">
-          <BlockContent
-            blocks={post.body}
-            projectId={import.meta.env.VITE_SANITY_PROJECT_ID || 'VOTRE_ID_DE_PROJET_SANITY'}
-            dataset="production"
-            serializers={serializers} 
-          />
-        </div>
+  <BlockContent
+    blocks={post.body}
+    projectId="qoljwjfa" // <--- REMPLACEZ PAR VOTRE VRAI ID
+    dataset="production"
+    serializers={serializers} 
+  />
+</div>
       </article>
     </>
   );

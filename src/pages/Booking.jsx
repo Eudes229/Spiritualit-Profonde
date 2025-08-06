@@ -120,7 +120,7 @@ Merci de m'indiquer la prochaine étape pour le paiement.
             Après avoir envoyé votre demande, vous serez redirigé vers WhatsApp pour finaliser le paiement et la consultation.
           </p>
           <div className="booking-price">
-            Total : 25,00 €
+            Total : 12,000 <FCFA></FCFA>
           </div>
         </div>
 
