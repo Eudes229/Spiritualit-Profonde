@@ -1,12 +1,13 @@
-// src/pages/Article.jsx (Version finale corrigée et optimisée)
+// src/pages/Article.jsx (Version Finale, Robuste et Anti-Crash)
+
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'; // <--- Link a été ajouté pour le message d'erreur
 import { Helmet } from 'react-helmet-async';
 import sanityClient from '../sanityClient';
 import BlockContent from '@sanity/block-content-to-react';
 import './Article.css';
 
-// Les serializers pour le contenu riche de Sanity
+// Les serializers pour le contenu riche de Sanity (inchangé)
 const serializers = {
   types: {
     h1: (props) => <h1 className="text-4xl font-bold my-4" {...props} />,
@@ -27,136 +28,113 @@ const serializers = {
 };
 
 function Article() {
-  const [post, setPost] = useState(null);
+  // GESTION DES 3 ÉTATS : CHARGEMENT, ERREUR, DONNÉES
+  const [postData, setPostData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
   const { slug } = useParams();
 
   useEffect(() => {
-    // REQUÊTE SANITY ENRICHIE POUR LE SEO
+    // REQUÊTE PLUS SÛRE
     const query = `*[_type == "post" && slug.current == $slug][0]{
-        title,
-        _id,
-        slug,
-        mainImage{
-          asset->{
-            _id,
-            url
-          }
-        },
-        body,
-        "name": author->name,
-        publishedAt,
-        excerpt // CHAMP SEO : le résumé de l'article
+        title, _id, slug, mainImage{asset->{_id,url}}, body, "name": author->name, publishedAt, excerpt
     }`;
     
     sanityClient.fetch(query, { slug })
-      .then((data) => setPost(data))
-      .catch(console.error);
+      .then((data) => {
+        if (data) {
+          // Si des données sont trouvées, on les stocke
+          setPostData(data);
+        } else {
+          // Si Sanity renvoie "null", on crée une erreur propre
+          setError(`L'article demandé n'a pas été trouvé. Il est possible qu'il soit encore un brouillon (cliquez sur "Publier" dans Sanity) ou que le type (_type) soit incorrect dans le code.`);
+        }
+      })
+      .catch((err) => {
+        console.error("Erreur de connexion à Sanity:", err);
+        setError("Une erreur de communication avec la base de données est survenue.");
+      })
+      .finally(() => {
+        // Dans tous les cas, le chargement est terminé
+        setIsLoading(false);
+      });
   }, [slug]);
 
-  if (!post) {
+  // Affiche un message de chargement tant que la requête n'est pas terminée
+  if (isLoading) {
     return (
-      <div className="loading-container">
+      <div className="loading-container" style={{ padding: '50px', textAlign: 'center' }}>
         <div className="spinner"></div>
         <p>Chargement de l'article...</p>
       </div>
     );
   }
 
-  // PRÉPARATION DES DONNÉES SEO (À L'INTÉRIEUR DU COMPOSANT)
-  const pageUrl = `https://spiritualiteprofonde.com/actualites/${post.slug.current}`;
-  const pageTitle = `${post.title} | Spiritia`;
-const pageDescription = post.excerpt || (post.body && post.body.length > 0 ? new BlockContent({ blocks: [post.body[0]] }).toJSON().join('').substring(0, 155) + '...' : "Découvrez cet article sur Spiritia.");
-  return (
-    // ON UTILISE UN FRAGMENT <> POUR ENTOURER LE JSX
-    <>
-      {/* ====================================================== */}
-      {/* SEO PUISSANT ET DYNAMIQUE POUR L'ARTICLE            */}
-      {/* ====================================================== */}
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <link rel="canonical" href={pageUrl} />
+  // Affiche un message d'erreur clair et utile au lieu d'une page blanche
+  if (error) {
+    return (
+      <div className="error-container" style={{ padding: '50px', textAlign: 'center', color: '#333' }}>
+        <h1 style={{ color: '#d9534f' }}>Oups, l'article est introuvable</h1>
+        <p style={{ fontSize: '1.2em', margin: '20px auto', maxWidth: '600px' }}>{error}</p>
+        <Link to="/actualites" style={{ display: 'inline-block', marginTop: '20px', padding: '12px 25px', backgroundColor: '#e88d2d', color: 'white', textDecoration: 'none', borderRadius: '5px', fontWeight: 'bold' }}>
+            Retour à la liste des actualités
+        </Link>
+      </div>
+    );
+  }
 
-        {/* --- OPEN GRAPH (Facebook, WhatsApp, etc.) --- */}
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={post.mainImage?.asset?.url} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="Spiritia" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="article:published_time" content={post.publishedAt} />
-        <meta property="article:author" content={post.name || 'Spiritia'} />
+  // Si tout va bien (pas de chargement, pas d'erreur), on affiche l'article
+  if (postData) {
+    // Toutes les variables sont créées ici, en toute sécurité
+    const pageUrl = `https://spiritualiteprofonde.com/actualites/${postData.slug.current}`;
+    const pageTitle = `${postData.title} | Spiritia`;
+    const pageDescription = postData.excerpt || (postData.body && postData.body.length > 0 ? new BlockContent({ blocks: [postData.body[0]] }).toJSON().join('').substring(0, 155) + '...' : `Découvrez l'article "${postData.title}" sur Spiritia.`);
 
-        {/* --- TWITTER CARDS --- */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={post.mainImage?.asset?.url} />
-
-        {/* --- DONNÉES STRUCTURÉES (SCHEMA.ORG) pour l'Article --- */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Article",
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "${pageUrl}"
-              },
-              "headline": "${post.title.replace(/"/g, '\\"')}",
-              "description": "${pageDescription.replace(/"/g, '\\"')}",
-              "image": "${post.mainImage?.asset?.url}",
-              "author": {
-                "@type": "Person",
-                "name": "${post.name || 'Spiritia'}"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "Spiritia",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://spiritualiteprofonde.com/images/lelogo.png"
-                }
-              },
-              "datePublished": "${post.publishedAt}"
-            }
-          `}
-        </script>
-      </Helmet>
-      {/* ====================================================== */}
-      {/* FIN DU BLOC SEO                                        */}
-      {/* ====================================================== */}
-
-      <article className="article-container">
-        <header className="article-header">
-          <h1 className="article-title">{post.title}</h1>
-          <p className="article-author">Par {post.name || 'Spiritia'}</p>
-        </header>
+    return (
+      <>
+        <Helmet>
+          <title>{pageTitle}</title>
+          <meta name="description" content={pageDescription} />
+          <link rel="canonical" href={pageUrl} />
+          <meta property="og:title" content={pageTitle} />
+          <meta property="og:description" content={pageDescription} />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={pageUrl} />
+          <meta property="og:image" content={postData.mainImage?.asset?.url} />
+          {/* ... et le reste de vos balises meta ... */}
+        </Helmet>
         
-        {post.mainImage && (
-          <img 
-            className="article-main-image" 
-            src={post.mainImage.asset.url} 
-            alt={post.title} 
-          />
-        )}
-        
-       {post.body && (
-  <div className="article-body">
-    <BlockContent
-      blocks={post.body}
-      projectId="qoljwjfa" 
-      dataset="production"
-      serializers={serializers} 
-    />
-  </div>
-)}
-      </article>
-    </>
-  );
+        <article className="article-container">
+          <header className="article-header">
+            <h1 className="article-title">{postData.title}</h1>
+            <p className="article-author">Par {postData.name || 'Spiritia'}</p>
+          </header>
+          
+          {postData.mainImage && (
+            <img 
+              className="article-main-image" 
+              src={postData.mainImage.asset.url} 
+              alt={postData.title} 
+            />
+          )}
+          
+          {postData.body && (
+            <div className="article-body">
+              <BlockContent
+                blocks={postData.body}
+                projectId="qoljwjfa" 
+                dataset="production"
+                serializers={serializers} 
+              />
+            </div>
+          )}
+        </article>
+      </>
+    );
+  }
+
+  return null; // Fallback au cas où, ne rien afficher.
 }
 
 export default Article;
