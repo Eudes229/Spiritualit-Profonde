@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet-async'; // <--- 1. IMPORTER L'OUTIL SEO
 function Geomancy() {
   // --- DÉBUT DE LA LOGIQUE WHATSAPP ---
   // Remplacez par votre numéro.
-  const myWhatsappNumber = '22896170781'; 
+  const myWhatsappNumber = '22384876466'; 
   // Le message qui sera pré-rempli pour l'utilisateur.
   const whatsappMessage = "Bonjour, je suis intéressé(e) par un essai de la géomancie pour répondre à une question.";
   // Encodage du message pour l'URL.

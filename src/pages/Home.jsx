@@ -85,7 +85,7 @@ const eventsData = [
 
 
 function Home() {
-  const myWhatsappNumber = '22896170781'; 
+  const myWhatsappNumber = '22384876466'; 
 
   // Fonction pour créer un lien WhatsApp personnalisé pour chaque rituel
   const createWhatsAppLink = (ritualTitle) => {
@@ -132,7 +132,7 @@ function Home() {
               "logo": "https://spiritualiteprofonde.com/images/lelogo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+22896170781",
+                "telephone": "+22384876466",
                 "contactType": "Customer Service"
               }
             }

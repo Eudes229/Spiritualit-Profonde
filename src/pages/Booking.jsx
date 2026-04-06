@@ -23,7 +23,7 @@ function Booking() {
     // --- LOGIQUE DE REDIRECTION WHATSAPP ---
 
     // 1. Vos informations
-    const myWhatsappNumber = '22896170781'; // Votre numéro WhatsApp
+    const myWhatsappNumber = '22384876466'; // Votre numéro WhatsApp
     const serviceName = 'Consultation Flash (12000 FCFA)';
 
     // 2. Construction du message à partir des données du formulaire

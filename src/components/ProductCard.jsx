@@ -11,7 +11,7 @@ function ProductCard({ image, title, price, whatsappNumber }) {
   const encodedMessage = encodeURIComponent(message);
 
   // Crée le lien WhatsApp final
-  const whatsappLink = `https://wa.me/${22896170781}?text=${encodedMessage}`;
+  const whatsappLink = `https://wa.me/${22384876466}?text=${encodedMessage}`;
 
   return (
     <div className="product-card">
